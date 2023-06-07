@@ -1,10 +1,19 @@
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
 import { FcGoogle } from 'react-icons/fc';
+import { Link } from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
 
 const Register = () => {
+    const {createUserEmailAndPass: createUserWithEmailAndPass} = useAuth();
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
-    const onSubmit = data => console.log(data);
+    const onSubmit = data => {
+        console.log(data)
+        console.log(data.email, data.password)
+        createUserWithEmailAndPass(data.email, data.password)
+        .then(result => console.log(result))
+        .catch(error => console.log(error))
+    };
+
     return (
         <div>
             <div className="hero min-h-screen bg-base-200">

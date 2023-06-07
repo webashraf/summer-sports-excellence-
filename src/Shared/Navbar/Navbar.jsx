@@ -1,10 +1,9 @@
-import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import { ContextProvider } from '../../AuthProvider/AuthProvider';
+import useAuth from '../../hooks/useAuth';
 
 const Navbar = () => {
 
-    const {user} = useContext(ContextProvider);
+    const {user} = useAuth()
     console.log(user);
 
 
