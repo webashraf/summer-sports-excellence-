@@ -7,7 +7,7 @@ import { Link, Outlet } from 'react-router-dom';
 
 const Dashboard = () => {
 
-    const role = 'user'
+    const role = 'instructor'
 
     return (
         <div>

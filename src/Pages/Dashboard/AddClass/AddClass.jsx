@@ -1,5 +1,6 @@
 import { useForm } from "react-hook-form";
 import useAuth from "../../../hooks/useAuth";
+import axios from "axios";
 const AddClass = () => {
     const { register, handleSubmit, watch, formState: { errors }, trigger } = useForm();
     const {user} = useAuth()
@@ -11,6 +12,8 @@ const AddClass = () => {
 
         }
         console.log(classData);
+        axios.post('http://localhost:5000/addclass', classData)
+        .then(data => console.log(data.data))
     };
 
     return (
