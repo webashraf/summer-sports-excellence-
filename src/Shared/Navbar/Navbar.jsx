@@ -35,7 +35,7 @@ const Navbar = () => {
                         {menu}
                     </ul>
                 </div>
-                <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+                <Link to={'/'} className="btn btn-ghost normal-case text-xl">daisyUI</Link>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1 gap-6 uppercase font-semibold">
@@ -46,7 +46,7 @@ const Navbar = () => {
                 {!user ? <Link to={'/login'} className="btn">Login</Link> :
                     <>
 
-                        <div className='w-[40px] h-[40px] rounded-md border-double border-4 overflow-hidden'>
+                        <div className='w-[60px] h-[60px] rounded-md border-double border-4 overflow-hidden'>
                         <img className='w-[100px]' src={user.photoURL} alt="" />
                         </div>
                         <button onClick={handleLogOut} className="btn">Logout</button>

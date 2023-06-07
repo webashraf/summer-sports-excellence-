@@ -19,6 +19,14 @@ const Register = () => {
         .catch(error => console.log(error))
     };
 
+    const handleError = async () => {
+        // Trigger form validation
+        const isValidPass = await trigger();
+
+        if (isValidPass) {
+            handleSubmit(onSubmit)();
+        }
+    };
     return (
         <div>
             <div className="hero min-h-screen bg-base-200">
@@ -38,6 +46,7 @@ const Register = () => {
                                     <span className="label-text">Email</span>
                                 </label>
                                 <input type="email"  {...register("email", { required: true })} placeholder="email" className="input input-bordered" />
+                                {errors?.password?.type === 'required' && <span className="text-yellow-500 font-bold">Field is required.</span>}
                             </div>
 
 
@@ -45,9 +54,23 @@ const Register = () => {
                                 <label className="label">
                                     <span className="label-text">Password</span>
                                 </label>
-                                <input type="password" {...register("password", { required: true })} placeholder="password" className="input input-bordered" />
+                                <input type="password" {...register("password",
+                                    {
+                                        required: true, minLength: 6, pattern: {
+                                            value: /^(?=.*[A-Z])(?=.*[!@#$&%*]).*$/,
+                                            message: 'Password must contain at least one capital letter and one special character (!@#$&*)',
+
+                                        }
+                                    }
+                                )}
+                                    placeholder="password" className="input input-bordered" />
+                                {errors.password && <p className="text-yellow-500 font-bold">{errors.password?.message}</p>}
+                                {errors?.password?.type === 'required' && <span className="text-yellow-500 font-bold">Field is required.</span>}
+                                {errors?.password?.type === 'minLength' && <span className="text-yellow-500 font-bold">Password less then 6 characters</span>}
+
+
                                 <label className="label">
-                                    <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
+                                    <a href="#" className="label-text-alt link link-hover">TODO</a>
                                 </label>
                             </div>                            
                             <div className="form-control">
@@ -62,7 +85,7 @@ const Register = () => {
 
 
                             <div className="form-control mt-6">
-                                <button type="submit" className="btn btn-primary">Register</button>
+                                <button type="submit" onClick={handleError} className="btn btn-primary">Register</button>
                             </div>
                         </form>
                         <div className=" flex justify-center flex-col items-center gap-4 pb-10 w-1/2 mx-auto">
