@@ -1,7 +1,6 @@
 import { useForm } from "react-hook-form";
-import { FaArrowRight } from 'react-icons/fa';
+import { FcGoogle } from 'react-icons/fc';
 import { Link } from "react-router-dom";
-
 const Login = () => {
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const onSubmit = data => console.log(data);
@@ -37,15 +36,15 @@ const Login = () => {
                                 <button type="submit" className="btn btn-primary">Login</button>
                             </div>
                         </form>
-                        <div className="w-full flex justify-center gap-4 pb-10">
-                            <button className="btn btn-outline font-bold text-2xl">Google</button>
-                            <Link to={'/register'} className="btn btn-outline font-bold text-2xl">Register                             <FaArrowRight></FaArrowRight>
- </Link>
-                        
-        
+                        <div className=" flex justify-center flex-col items-center gap-4 pb-10 w-1/2 mx-auto">
+                            <p>New here please <Link to={'/register'} className="font-bold text-red-500">Register.
+                            </Link></p>
+
+                            <button className="btn btn-block bg-[#f4f4f4] shadow-2xl font-bold text-xl -tracking-tight"><FcGoogle></FcGoogle><span className="-ml-[6px] ">oogle</span></button>
+
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
             </div >
         </div >
     );
