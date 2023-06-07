@@ -3,16 +3,16 @@ import { FcGoogle } from 'react-icons/fc';
 import { Link } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 const Login = () => {
-    const { loginUserWithEmailPass } = useAuth();
+    const { loginUserWithEmailPass, signInWithGoogle } = useAuth();
     const { register, handleSubmit, formState: { errors }, trigger } = useForm();
-    const onSubmit = async (data) => {
-        const isValid = await trigger();
+    const onSubmit = (data) => {
         console.log(data)
         loginUserWithEmailPass(data.email, data.password)
             .then(result => console.log(result))
             .catch(errors => console.log(errors))
 
     };
+
 
     const handleError = async () => {
         // Trigger form validation
@@ -22,6 +22,10 @@ const Login = () => {
             handleSubmit(onSubmit)();
         }
     };
+
+    const handleGoogleSignIn = () => {
+        signInWithGoogle()
+    }
 
     return (
         <div>
@@ -73,7 +77,7 @@ const Login = () => {
                             <p>New here please <Link to={'/register'} className="font-bold text-red-500">Register.
                             </Link></p>
 
-                            <button className="btn btn-block bg-[#f4f4f4] shadow-2xl font-bold text-xl -tracking-tight"><FcGoogle></FcGoogle><span className="-ml-[6px] ">oogle</span></button>
+                            <button className="btn btn-block bg-[#f4f4f4] shadow-2xl font-bold text-xl -tracking-tight" onClick={handleGoogleSignIn}><FcGoogle></FcGoogle><span className="-ml-[6px] ">oogle</span></button>
 
                         </div>
                     </div>

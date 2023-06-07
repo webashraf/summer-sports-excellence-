@@ -1,12 +1,13 @@
 import { AiOutlineHome, AiTwotoneHome } from 'react-icons/ai';
-import { FaBookMedical, FaUserEdit } from "react-icons/fa";
+import { FaAddressCard, FaBookMedical, FaUserEdit } from "react-icons/fa";
 import { SiGoogleclassroom } from 'react-icons/si';
 import { BsBookHalf } from 'react-icons/bs';
+import { MdJoinRight, MdPayments } from 'react-icons/md';
 import { Link, Outlet } from 'react-router-dom';
 
 const Dashboard = () => {
 
-    const role = 'instructor'
+    const role = 'user'
 
     return (
         <div>
@@ -49,9 +50,10 @@ const Dashboard = () => {
                         {role === 'user' && <div className='my-10 px-4'>
                             <Link className='text-xl underline leading-3 flex items-center gap-4 mb-3' to={'/'}> <AiTwotoneHome className='text-3xl'></AiTwotoneHome> User Home</Link>
 
-                            <Link className='text-xl underline leading-3 flex items-center gap-4 mb-3' to={'/'}> <SiGoogleclassroom className='text-3xl'></SiGoogleclassroom>Manage Class</Link>
+                            <Link className='text-xl underline leading-3 flex items-center gap-4 mb-3' to={'/'}> <FaAddressCard className='text-3xl'></FaAddressCard>My Selected Classes</Link>
 
-                            <Link className='text-xl underline leading-3 flex items-center gap-4 mb-3' to={'/'}> <FaUserEdit className='text-3xl'></FaUserEdit>Manage User</Link>
+                            <Link className='text-xl underline leading-3 flex items-center gap-4 mb-3' to={'/'}> <MdJoinRight className='text-3xl'></MdJoinRight>My Enrolled Classes</Link>
+                            <Link className='text-xl underline leading-3 flex items-center gap-4 mb-3' to={'/'}> <MdPayments className='text-3xl'></MdPayments>Payment</Link>
                         </div>}
                     </ul>
 

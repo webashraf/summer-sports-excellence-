@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 
 const Register = () => {
-    const {createUserWithEmailAndPass, updateUserProfile, signOutUser} = useAuth();
+    const {createUserWithEmailAndPass, updateUserProfile, signOutUser, signInWithGoogle} = useAuth();
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const onSubmit = data => {
         console.log(data)
@@ -27,6 +27,10 @@ const Register = () => {
             handleSubmit(onSubmit)();
         }
     };
+
+    const handleGoogleSignIn = () => {
+        signInWithGoogle()
+    }
     return (
         <div>
             <div className="hero min-h-screen bg-base-200">
@@ -92,7 +96,7 @@ const Register = () => {
                             <p>All ready have an account <Link to={'/login'} className="font-bold text-red-500">login now.
                             </Link></p>
 
-                            <button className="btn btn-block bg-[#f4f4f4] shadow-2xl font-bold text-xl -tracking-tight"><FcGoogle></FcGoogle><span className="-ml-[6px] ">oogle</span></button>
+                            <button className="btn btn-block bg-[#f4f4f4] shadow-2xl font-bold text-xl -tracking-tight" onClick={handleGoogleSignIn}><FcGoogle></FcGoogle><span className="-ml-[6px] ">oogle</span></button>
 
                         </div>
                     </div>
