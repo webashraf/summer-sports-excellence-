@@ -1,9 +1,17 @@
 import { useForm } from "react-hook-form";
 import { FcGoogle } from 'react-icons/fc';
 import { Link } from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
 const Login = () => {
+    const {loginUserWithEmailPass} = useAuth();
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
-    const onSubmit = data => console.log(data);
+    const onSubmit = data => {
+        console.log(data)
+        loginUserWithEmailPass(data.email, data.password)
+        .then(result => console.log(result))
+        .catch(errors => console.log(errors))
+
+    };
 
     return (
         <div>
