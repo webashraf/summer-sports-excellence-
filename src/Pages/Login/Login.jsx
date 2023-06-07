@@ -45,13 +45,13 @@ const Login = () => {
                                     <span className="label-text">Password</span>
                                 </label>
                                 <input type="password" {...register("password",
-                                    {
-                                        required: true, minLength: 6, pattern: {
-                                            value: /^(?=.*[A-Z])(?=.*[!@#$&%*]).*$/,
-                                            message: 'Password must contain at least one capital letter and one special character (!@#$&*)',
+                                    // {
+                                        // required: true, minLength: 6, pattern: {
+                                        //     value: /^(?=.*[A-Z])(?=.*[!@#$&%*]).*$/,
+                                        //     message: 'Password must contain at least one capital letter and one special character (!@#$&*)',
 
-                                        }
-                                    }
+                                        // }
+                                    // }
                                 )}
                                     placeholder="password" className="input input-bordered" />
                                 {errors.password && <p className="text-yellow-500 font-bold">{errors.password?.message}</p>}
