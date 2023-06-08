@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 const ClassesPage = () => {
 
@@ -14,16 +15,22 @@ const ClassesPage = () => {
 
 
     const handleSelectedClass = (id) => {
-        // const selectedClass = {
-        //     classId: classes._id,
-        //     courseName: classes.className,
-        //     instructorName: classes.instructorName,
-        //     coursePrice: classes.price,
-        // }
-        // console.log(selectedClass, id);
     
         axios.post(`http://localhost:5000/selectedClass/${id}`)
-        .then(res=> console.log(res.data))
+        .then(res=> {
+            console.log(res.data)
+            if (res.data.acknowledged) {
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Class successfully selected',
+                    showConfirmButton: false,
+                    timer: 1500
+                  })
+                
+            }
+        })
+ 
 
     }
 
@@ -38,11 +45,11 @@ const ClassesPage = () => {
                         <div className="card-body">
                             <h2 className="card-title">
                                 {classItem.className}
-                                <div className="badge badge-secondary">NEW</div>
+                                {/* <div className="badge badge-secondary">NEW</div> */}
                             </h2>
-                            <p>Instructor name:{classItem.instructorName}</p>
-                            <p>Total Seats: {classItem.seats} Available</p>
-                            <p>Course Price: ${classItem.price}</p>
+                            <p><span className="uppercase font-bold text-indigo-800">Instructor name:</span> {classItem.instructorName}</p>
+                            <p><span className="uppercase font-bold text-indigo-800">Total Seats: </span> {classItem.seats} Available</p>
+                            <p><span className="uppercase font-bold text-indigo-800">Course Price: </span> ${classItem.price}</p>
                             <div className="card-actions justify-end">
                                 <div onClick={()=>handleSelectedClass(classItem._id)} className="badge badge-outline hover:bg-emerald-800 hover:text-white">Select Class</div>
                                 {/* <div className="badge badge-outline">Products</div> */}
