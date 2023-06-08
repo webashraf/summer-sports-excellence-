@@ -7,14 +7,16 @@ const auth = getAuth(app)
 const googleProvider = new GoogleAuthProvider();
 
 const AuthProvider = ({ children }) => {
-
-    const [user, setUser] = useState(null)
+    const [user, setUser] = useState(null);
+    const [loading, setLoading] = useState(true);
 
     const createUserWithEmailAndPass = (email, password) => {
+        setLoading(true);
         return createUserWithEmailAndPassword(auth, email, password);
     };
 
     const updateUserProfile = (name, photoUrl) => {
+        setLoading(true);
        return  updateProfile(auth.currentUser, {
             displayName: name,
             photoURL: photoUrl
@@ -22,6 +24,7 @@ const AuthProvider = ({ children }) => {
     }
 
     const loginUserWithEmailPass = (email, password) => {
+        setLoading(true);
         return signInWithEmailAndPassword(auth, email, password);
     }
 
@@ -30,6 +33,7 @@ const AuthProvider = ({ children }) => {
     }
 
     const signInWithGoogle = () => {
+        setLoading(true);
         return signInWithPopup(auth, googleProvider)
     }
 
@@ -37,6 +41,7 @@ const AuthProvider = ({ children }) => {
 
         const unSubscribe = onAuthStateChanged(auth, currentUser => {
             setUser(currentUser);
+            setLoading(false);
             console.log(currentUser);
         })
 
@@ -47,7 +52,7 @@ const AuthProvider = ({ children }) => {
 
     }, [])
     const authInfo = {
-        user, createUserWithEmailAndPass, updateUserProfile, signOutUser, loginUserWithEmailPass, signInWithGoogle
+        user, createUserWithEmailAndPass, updateUserProfile, signOutUser, loginUserWithEmailPass, signInWithGoogle, loading
     }
 
     return (

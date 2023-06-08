@@ -2,6 +2,7 @@ import { useForm } from "react-hook-form";
 import { FcGoogle } from 'react-icons/fc';
 import { Link } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
+import SocialLogin from "../../Shared/SocialLogin/SocialLogin";
 const Login = () => {
     const { loginUserWithEmailPass, signInWithGoogle } = useAuth();
     const { register, handleSubmit, formState: { errors }, trigger } = useForm();
@@ -50,11 +51,11 @@ const Login = () => {
                                 </label>
                                 <input type="password" {...register("password",
                                     // {
-                                        // required: true, minLength: 6, pattern: {
-                                        //     value: /^(?=.*[A-Z])(?=.*[!@#$&%*]).*$/,
-                                        //     message: 'Password must contain at least one capital letter and one special character (!@#$&*)',
+                                    // required: true, minLength: 6, pattern: {
+                                    //     value: /^(?=.*[A-Z])(?=.*[!@#$&%*]).*$/,
+                                    //     message: 'Password must contain at least one capital letter and one special character (!@#$&*)',
 
-                                        // }
+                                    // }
                                     // }
                                 )}
                                     placeholder="password" className="input input-bordered" />
@@ -77,7 +78,7 @@ const Login = () => {
                             <p>New here please <Link to={'/register'} className="font-bold text-red-500">Register.
                             </Link></p>
 
-                            <button className="btn btn-block bg-[#f4f4f4] shadow-2xl font-bold text-xl -tracking-tight" onClick={handleGoogleSignIn}><FcGoogle></FcGoogle><span className="-ml-[6px] ">oogle</span></button>
+                            <SocialLogin></SocialLogin>
 
                         </div>
                     </div>
