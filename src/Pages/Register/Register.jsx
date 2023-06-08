@@ -1,17 +1,27 @@
 import { useForm } from "react-hook-form";
-import { FcGoogle } from 'react-icons/fc';
 import { Link } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import axios from "axios";
 import SocialLogin from "../../Shared/SocialLogin/SocialLogin";
+import { useState } from "react";
 
 const Register = () => {
     const { createUserWithEmailAndPass, updateUserProfile, user } = useAuth();
 
     const { register, handleSubmit, formState: { errors }, trigger } = useForm();
+    const [confirmPassError, setConfirmPassError] = useState(null);
     const onSubmit = data => {
         console.log(data)
-        console.log(data.email, data.password)
+        // console.log(data.confirmPassword, data.password)
+
+
+
+        if (data.password !== data.confirmPassword) {
+            return setConfirmPassError('Password is not match')
+        }
+        setConfirmPassError(null);
+
+
 
         createUserWithEmailAndPass(data.email, data.password)
             .then(result => {
@@ -26,7 +36,7 @@ const Register = () => {
                     email: data.email,
                     photoUrl: data.image
                 }
-                console.log(newUser);
+                // console.log(newUser);
                 axios.post(`http://localhost:5000/users`, newUser )
                 .then(res => console.log(res.data))
 
@@ -90,6 +100,32 @@ const Register = () => {
                                 {errors.password && <p className="text-yellow-500 font-bold">{errors.password?.message}</p>}
                                 {errors?.password?.type === 'required' && <span className="text-yellow-500 font-bold">Field is required.</span>}
                                 {errors?.password?.type === 'minLength' && <span className="text-yellow-500 font-bold">Password less then 6 characters</span>}
+
+
+                                <label className="label">
+                                    <a href="#" className="label-text-alt link link-hover">TODO</a>
+                                </label>
+                            </div>                            
+                            
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Confirm Password</span>
+                                </label>
+                                <input type="password" {...register("confirmPassword",
+                                    {
+                                        required: true, minLength: 6, pattern: {
+                                            value: /^(?=.*[A-Z])(?=.*[!@#$&%*]).*$/,
+                                            message: 'Password must contain at least one capital letter and one special character (!@#$&*)',
+
+                                        }
+                                    }
+                                )}
+                                    placeholder="confirm password" className="input input-bordered" />
+                                {errors.password && <p className="text-yellow-500 font-bold">{errors.password?.message}</p>}
+                                {errors?.password?.type === 'required' && <span className="text-yellow-500 font-bold">Field is required.</span>}
+                                {errors?.password?.type === 'minLength' && <span className="text-yellow-500 font-bold">Password less then 6 characters</span>}
+                                
+                                {confirmPassError && <span className="text-yellow-500 font-bold">{confirmPassError}</span>}
 
 
                                 <label className="label">

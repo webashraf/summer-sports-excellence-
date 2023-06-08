@@ -70,14 +70,14 @@ const AddClass = () => {
                                     <label className="label">
                                         <span className="label-text">Available Seats*</span>
                                     </label>
-                                    <input type="number"  {...register("seats", { required: true })} placeholder="name" className="input input-bordered " />
+                                    <input type="number"  {...register("seats", { required: true })} placeholder="seats" className="input input-bordered " />
                                 </div>                              
                                 
                                 <div className="form-control w-full">
                                     <label className="label">
                                         <span className="label-text">Price</span>*
                                     </label>
-                                    <input type="number"  {...register("price", { required: true })} placeholder="name" className="input input-bordered " />
+                                    <input type="number"  {...register("price", { required: true })} placeholder="price" className="input input-bordered " />
                                 </div>
                  
                             </div>

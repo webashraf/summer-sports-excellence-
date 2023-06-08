@@ -8,6 +8,7 @@ import Register from "../Pages/Register/Register";
 import MyClasses from "../Pages/Dashboard/MyClasses/MyClasses";
 import ManageClasses from "../Pages/Dashboard/ManageClasses/ManageClasses";
 import ManageUser from "../Pages/Dashboard/ManageUser/ManageUser";
+import ClassesPage from "../Pages/ClassesPage/ClassesPage";
 
 const router = createBrowserRouter([
     {
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
             {
                 path: 'register',
                 element: <Register></Register>
+            },
+            {
+                path: 'classes',
+                element: <ClassesPage></ClassesPage>
             }
         ]
     }, {

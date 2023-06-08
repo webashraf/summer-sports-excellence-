@@ -2,9 +2,7 @@ import { Link, NavLink } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 
 const Navbar = () => {
-    const { createUserWithEmailAndPass, updateUserProfile, signOutUser } = useAuth();
-
-    const { user } = useAuth()
+    const { signOutUser, user } = useAuth();
     console.log(user);
     const handleLogOut = () => {
         signOutUser();
@@ -19,7 +17,7 @@ const Navbar = () => {
 
         <NavLink to={'/classes'} className={({ isActive }) => isActive ? 'text-red-600' : 'text-black'}>Classes</NavLink>
 
-        <NavLink to={'/dashboard'} className={({ isActive }) => isActive ? 'text-red-600' : 'text-black'}>Dashboard</NavLink>
+        {user && <NavLink to={'/dashboard'} className={({ isActive }) => isActive ? 'text-red-600' : 'text-black'}>Dashboard</NavLink>}
 
     </>
 
