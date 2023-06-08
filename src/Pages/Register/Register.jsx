@@ -6,7 +6,7 @@ import axios from "axios";
 import SocialLogin from "../../Shared/SocialLogin/SocialLogin";
 
 const Register = () => {
-    const { createUserWithEmailAndPass, updateUserProfile, signOutUser, signInWithGoogle, user } = useAuth();
+    const { createUserWithEmailAndPass, updateUserProfile, user } = useAuth();
 
     const { register, handleSubmit, formState: { errors }, trigger } = useForm();
     const onSubmit = data => {
@@ -23,7 +23,8 @@ const Register = () => {
                 })
                 const newUser = {
                     name: data.name,
-                    email: data.email
+                    email: data.email,
+                    photoUrl: data.image
                 }
                 console.log(newUser);
                 axios.post(`http://localhost:5000/users`, newUser )

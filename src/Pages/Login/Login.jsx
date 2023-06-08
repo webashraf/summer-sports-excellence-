@@ -3,13 +3,24 @@ import { FcGoogle } from 'react-icons/fc';
 import { Link } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import SocialLogin from "../../Shared/SocialLogin/SocialLogin";
+import axios from "axios";
 const Login = () => {
     const { loginUserWithEmailPass, signInWithGoogle } = useAuth();
     const { register, handleSubmit, formState: { errors }, trigger } = useForm();
     const onSubmit = (data) => {
         console.log(data)
         loginUserWithEmailPass(data.email, data.password)
-            .then(result => console.log(result))
+            .then(result => {
+                console.log(result);
+                const newUser = {
+                    name: data.name,
+                    email: data.email,
+                    photoUrl: result.user.photoURL
+                }
+                console.log(newUser);
+                axios.post(`http://localhost:5000/users`, newUser )
+                .then(res => console.log(res.data))
+            })
             .catch(errors => console.log(errors))
 
     };
@@ -24,9 +35,6 @@ const Login = () => {
         }
     };
 
-    const handleGoogleSignIn = () => {
-        signInWithGoogle()
-    }
 
     return (
         <div>

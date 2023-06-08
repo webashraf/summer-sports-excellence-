@@ -7,7 +7,7 @@ const MyClasses = () => {
     const {user} = useAuth()
     // const [classes, setClasses] = useState([])
 
-    const {data: classes} = useQuery({
+    const {data: classes = []} = useQuery({
         queryKey: ['classs', user?.email],
         enabled: !!user?.email,
         queryFn: async () => {

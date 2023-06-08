@@ -1,18 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
-import { useEffect, useState } from "react";
-import useAuth from "../../../hooks/useAuth";
 import Swal from "sweetalert2";
+import useAuth from "../../../hooks/useAuth";
 
 const ManageClasses = () => {
     const {user, loading} = useAuth()
-    // const [allClass, setAllClass] = useState([])
-
-    // useEffect(() => {
-    //     axios.get(`http://localhost:5000/allClasses`)
-    //     .then(res => setAllClass(res.data))
-    // },[])
-    // console.log(allClass);
 
     const {data: allClass = [], refetch} = useQuery({
         queryKey: ['allClass'],
@@ -41,6 +33,31 @@ const ManageClasses = () => {
     }
 
 
+    const handleFeedbackBtn = async (id, data) => {
+        const { value: text } = await Swal.fire({
+            input: 'textarea',
+            inputLabel: 'Message',
+            inputPlaceholder: 'Type your message here...',
+            inputAttributes: {
+              'aria-label': 'Type your message here'
+            },
+            showCancelButton: true
+          })
+          
+          if (text) {
+            Swal.fire(text)
+            console.log(text);
+            
+            axios.put(`http://localhost:5000/classFeedbackUpdate/${id}`, {feedback: text})
+            .then(res => {
+                console.log(res.data)
+                refetch();
+            })
+
+          }
+    }
+
+
     return (
         <div>
             <div className="overflow-x-auto">
@@ -55,7 +72,7 @@ const ManageClasses = () => {
                             <th>Available Seats</th>
                             <th>Price</th>
                             <th>Status</th>
-                            <th>Status Update</th>
+                            <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -83,13 +100,15 @@ const ManageClasses = () => {
                             </td>
                             <td className="text-center">{classItem.seats}</td>
                             <td className="text-center">${classItem.price}</td>
-                            <td className={classItem.status === 'approve' && 'text-emerald-700 font-bold' || classItem.status === 'deny' && 'text-red-500 font-bold' || 'text-yellow-500 font-bold'}>{classItem?.status}</td>
+                            <td className={classItem.status === 'approved' && 'text-emerald-700 font-bold' || classItem.status === 'deny' && 'text-red-500 font-bold' || 'text-yellow-500 font-bold'}>{classItem?.status}</td>
                             <th>
-                                <button onClick={() => handleUpdateStatus(classItem._id, 'approve')} disabled={classItem.status !== 'pending'} className="btn bg-emerald-900 btn-block text-white btn-xs">Approve</button>
+                                <button onClick={() => handleUpdateStatus(classItem._id, 'approved')} 
+                                disabled={classItem.status !== 'pending'}
+                                className="btn bg-emerald-900 btn-block text-white btn-xs">Approve</button>
                                 <button onClick={() => handleUpdateStatus(classItem._id, 'deny')}
                                 disabled={classItem.status !== 'pending'}
-                                className="btn bg-emerald-900 btn-block text-white btn-xs">Deny</button>
-                                <button className="btn bg-emerald-900 btn-block text-white btn-xs">Feedback</button>
+                                className="btn bg-red-900 btn-block text-white btn-xs">Deny</button>
+                                <button onClick={() => handleFeedbackBtn(classItem._id)} className="btn bg-emerald-900 btn-block text-white btn-xs">Feedback</button>
                             </th>
                         </tr>)}
 
