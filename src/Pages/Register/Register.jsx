@@ -2,22 +2,39 @@ import { useForm } from "react-hook-form";
 import { FcGoogle } from 'react-icons/fc';
 import { Link } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
+import axios from "axios";
+import SocialLogin from "../../Shared/SocialLogin/SocialLogin";
 
 const Register = () => {
-    const {createUserWithEmailAndPass, updateUserProfile, signOutUser, signInWithGoogle} = useAuth();
-    const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    const { createUserWithEmailAndPass, updateUserProfile, signOutUser, signInWithGoogle, user } = useAuth();
+
+    const { register, handleSubmit, formState: { errors }, trigger } = useForm();
     const onSubmit = data => {
         console.log(data)
         console.log(data.email, data.password)
+
         createUserWithEmailAndPass(data.email, data.password)
-        .then(result => {
-            console.log(result);
-            updateUserProfile(data.name, data.image)
-            .then(res => console.log(res))
-            signOutUser();
-        })
-        .catch(error => console.log(error))
+            .then(result => {
+                console.log(result);
+                updateUserProfile(data.name, data.image)
+                .then(res => {
+                    console.log(res.user);
+                    // const logInUser = result.user;
+                })
+                const newUser = {
+                    name: data.name,
+                    email: data.email
+                }
+                console.log(newUser);
+                axios.post(`http://localhost:5000/users`, newUser )
+                .then(res => console.log(res.data))
+
+
+                // signOutUser();
+            })
+            .catch(error => console.log(error))
     };
+
 
     const handleError = async () => {
         // Trigger form validation
@@ -28,9 +45,10 @@ const Register = () => {
         }
     };
 
-    const handleGoogleSignIn = () => {
-        signInWithGoogle()
-    }
+
+
+
+
     return (
         <div>
             <div className="hero min-h-screen bg-base-200">
@@ -44,7 +62,7 @@ const Register = () => {
                                     <span className="label-text">Name</span>
                                 </label>
                                 <input type="name"  {...register("name", { required: true })} placeholder="name" className="input input-bordered" />
-                            </div>                            
+                            </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Email</span>
@@ -76,7 +94,7 @@ const Register = () => {
                                 <label className="label">
                                     <a href="#" className="label-text-alt link link-hover">TODO</a>
                                 </label>
-                            </div>                            
+                            </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Photo URL</span>
@@ -95,8 +113,7 @@ const Register = () => {
                         <div className=" flex justify-center flex-col items-center gap-4 pb-10 w-1/2 mx-auto">
                             <p>All ready have an account <Link to={'/login'} className="font-bold text-red-500">login now.
                             </Link></p>
-
-                            <button className="btn btn-block bg-[#f4f4f4] shadow-2xl font-bold text-xl -tracking-tight" onClick={handleGoogleSignIn}><FcGoogle></FcGoogle><span className="-ml-[6px] ">oogle</span></button>
+                            <SocialLogin></SocialLogin>
 
                         </div>
                     </div>

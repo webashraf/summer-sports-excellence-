@@ -1,8 +1,9 @@
 import { useForm } from "react-hook-form";
 import useAuth from "../../../hooks/useAuth";
 import axios from "axios";
+import Swal from "sweetalert2";
 const AddClass = () => {
-    const { register, handleSubmit, watch, formState: { errors }, trigger } = useForm();
+    const { register, handleSubmit, formState: { errors },  reset } = useForm();
     const {user} = useAuth()
     const onSubmit = data => {
         // console.log(data)
@@ -13,7 +14,17 @@ const AddClass = () => {
         }
         console.log(classData);
         axios.post('http://localhost:5000/addclass', classData)
-        .then(data => console.log(data.data))
+        .then(data => {
+            console.log(data.data)
+            reset()
+            Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: 'Your work has been saved',
+                showConfirmButton: false,
+                timer: 1500
+              })
+        })
     };
 
     return (
@@ -26,47 +37,47 @@ const AddClass = () => {
                             <div className="flex gap-2">
                                 <div className="form-control w-full">
                                     <label className="label">
-                                        <span className="label-text">Class Name</span>
+                                        <span className="label-text">Class Name*</span>
                                     </label>
-                                    <input type="text"  {...register("className")} placeholder="name" className="input input-bordered " />
+                                    <input type="text"  {...register("className", { required: true })} placeholder="name" className="input input-bordered " />
                                 </div>
                                 <div className="form-control w-full">
                                     <label className="label">
-                                        <span className="label-text">Class Image</span>
+                                        <span className="label-text">Class Image*</span>
                                     </label>
-                                    <input type="url"  {...register("photoUrl")} placeholder="class image" className="input input-bordered " />
+                                    <input type="url"  {...register("photoUrl", { required: true })} placeholder="class image" className="input input-bordered " />
                                 </div>
                             </div>
 
                             <div className="flex gap-2">
                                 <div className="form-control w-full">
                                     <label className="label">
-                                        <span className="label-text">Instructor Name</span>
+                                        <span className="label-text">Instructor Name*</span>
                                     </label>
-                                    <input type="text" defaultValue={user?.displayName} readOnly  {...register("instructorName")} placeholder="name" className="input input-bordered " />
+                                    <input type="text" defaultValue={user?.displayName} readOnly  {...register("instructorName", { required: true })} placeholder="name" className="input input-bordered " />
                                 </div>
 
                                 <div className="form-control w-full">
                                     <label className="label">
-                                        <span className="label-text">Instructor Email</span>
+                                        <span className="label-text">Instructor Email*</span>
                                     </label>
-                                    <input type="email" defaultValue={user?.email} readOnly  {...register("instructorEmail")} placeholder="name" className="input input-bordered " />
+                                    <input type="email" defaultValue={user?.email} readOnly  {...register("instructorEmail", { required: true })} placeholder="name" className="input input-bordered " />
                                 </div>
                             </div>                            
                             
                             <div className="flex gap-2">
                                 <div className="form-control w-full">
                                     <label className="label">
-                                        <span className="label-text">Available Seats</span>
+                                        <span className="label-text">Available Seats*</span>
                                     </label>
-                                    <input type="number"  {...register("seats")} placeholder="name" className="input input-bordered " />
+                                    <input type="number"  {...register("seats", { required: true })} placeholder="name" className="input input-bordered " />
                                 </div>                              
                                 
                                 <div className="form-control w-full">
                                     <label className="label">
-                                        <span className="label-text">Price</span>
+                                        <span className="label-text">Price</span>*
                                     </label>
-                                    <input type="number"  {...register("price")} placeholder="name" className="input input-bordered " />
+                                    <input type="number"  {...register("price", { required: true })} placeholder="name" className="input input-bordered " />
                                 </div>
                  
                             </div>

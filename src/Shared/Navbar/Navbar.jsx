@@ -47,7 +47,7 @@ const Navbar = () => {
                     <>
 
                         <div className='w-[60px] h-[60px] rounded-md border-double border-4 overflow-hidden'>
-                        <img className='w-[100px]' src={user.photoURL} alt="" />
+                        <img className='w-[100px]' src={user?.photoURL && user?.photoURL} alt="" />
                         </div>
                         <button onClick={handleLogOut} className="btn">Logout</button>
                     </>
