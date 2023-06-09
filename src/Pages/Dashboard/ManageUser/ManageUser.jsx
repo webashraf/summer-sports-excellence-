@@ -9,7 +9,7 @@ const ManageUser = () => {
     const { data: users = [] , refetch} = useQuery({
         queryKey: ['users'],
         queryFn: async () => {
-            const res = await axiosSecure.get('http://localhost:5000/allUsers')
+            const res = await axiosSecure.get('/allUsers')
             return res.data;
         }
     })

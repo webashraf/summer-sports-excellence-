@@ -6,7 +6,7 @@ import { useEffect } from "react";
 
 
 const axiosSecure = axios.create({
-    baseUrl: 'http://localhost:5000'
+    baseURL: 'http://localhost:5000'
 });
 
 const useAxiosSecure = () => {
@@ -42,10 +42,6 @@ useEffect(()=> {
             return Promise.reject(error);
         }
     );
-
-
-
-
 
 
 },[navigate, signOutUser])

@@ -9,6 +9,8 @@ import MyClasses from "../Pages/Dashboard/MyClasses/MyClasses";
 import ManageClasses from "../Pages/Dashboard/ManageClasses/ManageClasses";
 import ManageUser from "../Pages/Dashboard/ManageUser/ManageUser";
 import ClassesPage from "../Pages/ClassesPage/ClassesPage";
+import SelectedClass from "../Pages/Dashboard/SelectedClass/SelectedClass";
+
 
 const router = createBrowserRouter([
     {
@@ -32,7 +34,8 @@ const router = createBrowserRouter([
                 element: <ClassesPage></ClassesPage>
             }
         ]
-    }, {
+    }, 
+    {
         path: 'dashboard',
         element: <Dashboard></Dashboard>,
         children: [
@@ -51,6 +54,10 @@ const router = createBrowserRouter([
             {
                 path: '/dashboard/myclasses',
                 element: <MyClasses></MyClasses>
+            },
+            {
+                path: '/dashboard/selectedClass',
+                element: <SelectedClass></SelectedClass>
             }
         ]
     }

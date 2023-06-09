@@ -80,7 +80,7 @@ const Dashboard = () => {
                         {student?.user && 'user' && <div className='my-10 px-4'>
                             <Link className='text-[15px] underline leading-3 flex items-center gap-2 mb-3' to={'/'}> <AiTwotoneHome className='text-xl'></AiTwotoneHome> User Home</Link>
 
-                            <Link className='text-[15px] underline leading-3 flex items-center gap-2 mb-3' to={'/'}> <FaAddressCard className='text-xl'></FaAddressCard>My Selected Classes</Link>
+                            <Link className='text-[15px] underline leading-3 flex items-center gap-2 mb-3' to={'/dashboard/selectedClass'}> <FaAddressCard className='text-xl'></FaAddressCard>My Selected Classes</Link>
 
                             <Link className='text-[15px] underline leading-3 flex items-center gap-2 mb-3' to={'/'}> <MdJoinRight className='text-xl'></MdJoinRight>My Enrolled Classes</Link>
                             <Link className='text-[15px] underline leading-3 flex items-center gap-2 mb-3' to={'/'}> <MdPayments className='text-xl'></MdPayments>Payment</Link>

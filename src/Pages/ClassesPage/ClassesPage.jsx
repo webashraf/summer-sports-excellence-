@@ -1,20 +1,21 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import useAuth from "../../hooks/useAuth";
-import { Navigate, useNavigate } from "react-router-dom";
 
 const ClassesPage = () => {
     const { user } = useAuth();
     const navigate = useNavigate();
     const [student, setStudent] = useState(null);
-    console.log(student, user?.email);
+    console.log('student', user?.email);
 
     useEffect(() => {
         axios.get(`http://localhost:5000/isUser/${user?.email}`)
             .then(res => setStudent(res.data));
     }, [user]);
+    
 
 
 
@@ -29,7 +30,7 @@ const ClassesPage = () => {
     console.log(classes);
 
 
-    const handleSelectedClass = (id) => {
+    const handleSelectedClass = async(id) => {
 
         if (!user) {
             Swal.fire({
@@ -48,7 +49,9 @@ const ClassesPage = () => {
         }
 
         else {
-            axios.post(`http://localhost:5000/selectedClass/${id}`)
+            const studentEmail = {email: user?.email}
+            console.log(studentEmail);
+           await axios.post(`http://localhost:5000/selectedClass/${id}`, studentEmail)
                 .then(res => {
                     console.log(res.data)
                     if (res.data.acknowledged) {
@@ -64,9 +67,8 @@ const ClassesPage = () => {
                     else {
                         Swal.fire({
                             icon: 'error',
-                            title: 'Oops...',
-                            text: 'Something went wrong!',
-                            footer: '<a href="">Why do I have this issue?</a>'
+                            title: 'Course all ready selected!!',
+                            text: 'You not select a course multiple time.',
                         })
                     }
                 })
@@ -82,7 +84,7 @@ const ClassesPage = () => {
         <div className="px-20">
             <div className="grid grid-cols-3 gap-6">
                 {
-                    classes.map(classItem => <div key={classItem._id} className="card w-80 mx-auto bg-base-100 shadow-xl">
+                    classes.map(classItem => <div key={classItem._id} className={classItem.seats < 1 ? 'card w-80 mx-auto bg-red-400 shadow-xl text-slate-200' : "card w-80 mx-auto bg-base-100 shadow-xl"}>
                         <figure><img src={classItem.photoUrl} className="h-[180px] object-cover w-full" alt="Sports Image" /></figure>
                         <div className="card-body">
                             <h2 className="card-title">
