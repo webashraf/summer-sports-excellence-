@@ -4,6 +4,8 @@ import useAxiosSecure from '../../../hooks/useAxiosSecure';
 import { FaAmazonPay, FaBeer, FaCcAmazonPay } from 'react-icons/fa';
 import { BsFillTrashFill, BsTrash3 } from 'react-icons/bs';
 import Swal from 'sweetalert2';
+import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 const SelectedClass = () => {
     const allClass = [1];
@@ -11,7 +13,7 @@ const SelectedClass = () => {
     const [axiosSecure] = useAxiosSecure();
 
 
-    const {data: selectedClasses = []} = useQuery({
+    const {data: selectedClasses = [], refetch} = useQuery({
         queryKey: ['selectedClasses', user?.email],
         enabled: !!user && loading === false,
         queryFn: async () => {
@@ -33,11 +35,24 @@ const SelectedClass = () => {
             confirmButtonText: 'Yes, delete it!'
           }).then((result) => {
             if (result.isConfirmed) {
-              Swal.fire(
-                'Deleted!',
-                'Your file has been deleted.',
-                'success'
-              )
+
+
+                axiosSecure.delete(`deleteSelectedClass/${id}`)
+                .then(res => {
+                    console.log(res.data);
+                    if (res.data.acknowledged) {
+                        Swal.fire(
+                          'Deleted!',
+                          'Your file has been deleted.',
+                          'success'
+                        )
+                        refetch();
+                    }
+                })
+
+
+
+
             }
           })
     }
@@ -106,12 +121,10 @@ const SelectedClass = () => {
                             </td>
                             <td className="text-center">${classItem.price}</td>
                             <th className='flex justify-around'>
-                                <button 
-                                onClick={()=> handlePayBtn(classItem._id)}
-                                className="btn bg-black text-white btn-md">
+                                <Link to={`/dashboard/payment/${classItem._id}`} className="btn bg-black text-white btn-md">
                                     {/* <FaCcAmazonPay className='text-5xl '></FaCcAmazonPay> */}
                                     PAY
-                                </button>
+                                </Link>
                         
                                 <button 
                                 onClick={() => handleDelete(classItem._id)}

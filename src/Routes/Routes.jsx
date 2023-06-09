@@ -10,6 +10,7 @@ import ManageClasses from "../Pages/Dashboard/ManageClasses/ManageClasses";
 import ManageUser from "../Pages/Dashboard/ManageUser/ManageUser";
 import ClassesPage from "../Pages/ClassesPage/ClassesPage";
 import SelectedClass from "../Pages/Dashboard/SelectedClass/SelectedClass";
+import Payment from "../Pages/Dashboard/Payment/Payment";
 
 
 const router = createBrowserRouter([
@@ -58,6 +59,11 @@ const router = createBrowserRouter([
             {
                 path: '/dashboard/selectedClass',
                 element: <SelectedClass></SelectedClass>
+            },
+            {
+                path: '/dashboard/payment/:id',
+                element: <Payment></Payment>,
+                loader: ({params})=> fetch(`http://localhost:5000/single_course_for_payment/${params.id}`)
             }
         ]
     }

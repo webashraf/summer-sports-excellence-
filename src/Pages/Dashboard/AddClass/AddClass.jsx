@@ -3,28 +3,33 @@ import useAuth from "../../../hooks/useAuth";
 import axios from "axios";
 import Swal from "sweetalert2";
 const AddClass = () => {
-    const { register, handleSubmit, formState: { errors },  reset } = useForm();
-    const {user} = useAuth()
+    const { register, handleSubmit, formState: { errors }, reset } = useForm();
+    const { user } = useAuth()
     const onSubmit = data => {
         // console.log(data)
         const classData = {
-            ...data,
-            status: 'pending',
 
+            className: data.className,
+            instructorEmail: data.instructorEmail,
+            instructorName: data.instructorName,
+            photoUrl: data.photoUrl,
+            price: parseFloat(data.price),
+            seats: parseInt(data.seats),
+            status: 'pending',
         }
         console.log(classData);
         axios.post('http://localhost:5000/addclass', classData)
-        .then(data => {
-            console.log(data.data)
-            reset()
-            Swal.fire({
-                position: 'top-end',
-                icon: 'success',
-                title: 'Class successfully added',
-                showConfirmButton: false,
-                timer: 1500
-              })
-        })
+            .then(data => {
+                console.log(data.data)
+                reset()
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Class successfully added',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+            })
     };
 
     return (
@@ -63,23 +68,23 @@ const AddClass = () => {
                                     </label>
                                     <input type="email" defaultValue={user?.email} readOnly  {...register("instructorEmail", { required: true })} placeholder="name" className="input input-bordered " />
                                 </div>
-                            </div>                            
-                            
+                            </div>
+
                             <div className="flex gap-2">
                                 <div className="form-control w-full">
                                     <label className="label">
                                         <span className="label-text">Available Seats*</span>
                                     </label>
                                     <input type="number"  {...register("seats", { required: true })} placeholder="seats" className="input input-bordered " />
-                                </div>                              
-                                
+                                </div>
+
                                 <div className="form-control w-full">
                                     <label className="label">
                                         <span className="label-text">Price</span>*
                                     </label>
                                     <input type="number"  {...register("price", { required: true })} placeholder="price" className="input input-bordered " />
                                 </div>
-                 
+
                             </div>
 
                             <div className="form-control mt-6">

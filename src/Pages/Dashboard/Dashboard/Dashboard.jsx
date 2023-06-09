@@ -50,7 +50,7 @@ const Dashboard = () => {
 
                 </div>
                 <div className="drawer-side">
-                    <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
+                    <label htmlFor="my-drawer-2" className="drawer-overlay mt-0"></label>
                     <ul className="menu p-3 w-60 h-full text-white bg-cyan-950 px-4">
                         <li className='flex flex-col items-center'>
                             <h1 className='text-sm font-bold'>SummerSportsExcellence</h1>
