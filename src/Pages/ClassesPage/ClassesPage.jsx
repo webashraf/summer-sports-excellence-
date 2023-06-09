@@ -1,11 +1,26 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
+import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
+import useAuth from "../../hooks/useAuth";
+import { Navigate, useNavigate } from "react-router-dom";
 
 const ClassesPage = () => {
+    const { user } = useAuth();
+    const navigate = useNavigate();
+    const [student, setStudent] = useState(null);
+    console.log(student, user?.email);
 
-    const { data: classes = [] } = useQuery({
+    useEffect(() => {
+        axios.get(`http://localhost:5000/isUser/${user?.email}`)
+            .then(res => setStudent(res.data));
+    }, [user]);
+
+
+
+    const { data: classes = [], } = useQuery({
         queryKey: ['allClasses'],
+        enabled: !!user,
         queryFn: async () => {
             const res = await axios.get(`http://localhost:5000/approvedClasses`)
             return res.data;
@@ -15,22 +30,49 @@ const ClassesPage = () => {
 
 
     const handleSelectedClass = (id) => {
-    
-        axios.post(`http://localhost:5000/selectedClass/${id}`)
-        .then(res=> {
-            console.log(res.data)
-            if (res.data.acknowledged) {
-                Swal.fire({
-                    position: 'top-end',
-                    icon: 'success',
-                    title: 'Class successfully selected',
-                    showConfirmButton: false,
-                    timer: 1500
-                  })
-                
-            }
-        })
- 
+
+        if (!user) {
+            Swal.fire({
+                title: 'Log in fast then select the course',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Go to login page'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    navigate('/login')
+                }
+            })
+        }
+
+        else {
+            axios.post(`http://localhost:5000/selectedClass/${id}`)
+                .then(res => {
+                    console.log(res.data)
+                    if (res.data.acknowledged) {
+                        Swal.fire({
+                            position: 'top-end',
+                            icon: 'success',
+                            title: 'Class successfully selected',
+                            showConfirmButton: false,
+                            timer: 1500
+                        })
+
+                    }
+                    else {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Oops...',
+                            text: 'Something went wrong!',
+                            footer: '<a href="">Why do I have this issue?</a>'
+                        })
+                    }
+                })
+
+        }
+
 
     }
 
@@ -51,7 +93,7 @@ const ClassesPage = () => {
                             <p><span className="uppercase font-bold text-indigo-800">Total Seats: </span> {classItem.seats} Available</p>
                             <p><span className="uppercase font-bold text-indigo-800">Course Price: </span> ${classItem.price}</p>
                             <div className="card-actions justify-end">
-                                <div onClick={()=>handleSelectedClass(classItem._id)} className="badge badge-outline hover:bg-emerald-800 hover:text-white">Select Class</div>
+                                <button onClick={() => handleSelectedClass(classItem._id)} disabled={!student || classItem.seats < 1} className="btn btn-xs btn-outline hover:bg-emerald-800 hover:text-white">Select Class</button>
                                 {/* <div className="badge badge-outline">Products</div> */}
                             </div>
                         </div>

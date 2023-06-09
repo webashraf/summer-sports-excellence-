@@ -1,13 +1,15 @@
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import useAxiosSecure from '../../../hooks/useAxiosSecure';
 
 const ManageUser = () => {
+    const [axiosSecure] = useAxiosSecure();
 
     const { data: users = [] , refetch} = useQuery({
         queryKey: ['users'],
         queryFn: async () => {
-            const res = await axios.get('http://localhost:5000/allUsers')
+            const res = await axiosSecure.get('http://localhost:5000/allUsers')
             return res.data;
         }
     })

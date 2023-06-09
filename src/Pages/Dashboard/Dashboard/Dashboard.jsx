@@ -1,14 +1,20 @@
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 import { AiOutlineHome, AiTwotoneHome } from 'react-icons/ai';
-import { FaAddressCard, FaBookMedical, FaUserEdit } from "react-icons/fa";
-import { SiGoogleclassroom } from 'react-icons/si';
 import { BsBookHalf } from 'react-icons/bs';
+import { FaAddressCard, FaBookMedical, FaUserEdit } from "react-icons/fa";
 import { MdJoinRight, MdPayments } from 'react-icons/md';
+import { SiGoogleclassroom } from 'react-icons/si';
 import { Link, Outlet } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
-import { useEffect, useState } from 'react';
-import axios from 'axios';
 
 const Dashboard = () => {
+    // const [isAdmin] = useAdmin();
+    // console.log(isAdmin);
+
+    // const [axiosSecure] = useAxiosSecure();
+
+
     const {user} = useAuth();
     const [admin, setAdmin] = useState(null);
     const [instructor, setInstructor] = useState(null);
@@ -19,16 +25,18 @@ const Dashboard = () => {
         .then(res => setAdmin(res.data));
     }, [user]);
 
+    
     useEffect(() => {
         axios.get(`http://localhost:5000/isInstructor/${user?.email}`)
         .then(res => setInstructor(res.data));
-    }, [user]);    
+    }, [user]); 
+
     useEffect(() => {
         axios.get(`http://localhost:5000/isUser/${user?.email}`)
         .then(res => setStudent(res.data));
     }, [user]);
 
-    console.log(admin, instructor, student);
+    console.log(admin?.admin, instructor?.instructor, student?.user);
   
 
     return (
@@ -53,7 +61,7 @@ const Dashboard = () => {
                             <Link className='text-[15px] underline leading-3 flex items-center gap-2 mb-3' to={'/'}> <AiOutlineHome className='text-xl'></AiOutlineHome> Go to Home</Link>
                         </div>
 
-                        {admin && <div className='my-10 px-4'>
+                        {admin?.admin && <div className='my-10 px-4'>
                             <Link className='text-[15px] underline leading-3 flex items-center gap-2 mb-3' to={'/'}> <AiTwotoneHome className='text-xl'></AiTwotoneHome> Admin Home</Link>
 
                             <Link className='text-[15px] underline leading-3 flex items-center gap-2 mb-3' to={'/dashboard/manageclasses'}> <SiGoogleclassroom className='text-xl'></SiGoogleclassroom>Manage Class</Link>
@@ -61,7 +69,7 @@ const Dashboard = () => {
                             <Link className='text-[15px] underline leading-3 flex items-center gap-2 mb-3' to={'/dashboard/manageuser'}> <FaUserEdit className='text-xl'></FaUserEdit>Manage User</Link>
                         </div>                        }
                         
-                        {instructor && 'instructor' && <div className='my-10 px-4'>
+                        {instructor?.instructor && 'instructor' && <div className='my-10 px-4'>
                             <Link className='text-[15px] underline leading-3 flex items-center gap-2 mb-3' to={'/'}> <AiTwotoneHome className='text-xl'></AiTwotoneHome> Instructor Home</Link>
 
                             <Link className='text-[15px] underline leading-3 flex items-center gap-2 mb-3' to={'/dashboard/addclass'}> <FaBookMedical className='text-xl'></FaBookMedical>Add a Class</Link>
@@ -69,7 +77,7 @@ const Dashboard = () => {
                             <Link className='text-[15px] underline leading-3 flex items-center gap-2 mb-3' to={'/dashboard/myclasses'}> <BsBookHalf className='text-xl'></BsBookHalf>My Class</Link>
                         </div>    }                    
                         
-                        {student && 'user' && <div className='my-10 px-4'>
+                        {student?.user && 'user' && <div className='my-10 px-4'>
                             <Link className='text-[15px] underline leading-3 flex items-center gap-2 mb-3' to={'/'}> <AiTwotoneHome className='text-xl'></AiTwotoneHome> User Home</Link>
 
                             <Link className='text-[15px] underline leading-3 flex items-center gap-2 mb-3' to={'/'}> <FaAddressCard className='text-xl'></FaAddressCard>My Selected Classes</Link>
