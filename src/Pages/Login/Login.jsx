@@ -1,14 +1,23 @@
 import { useForm } from "react-hook-form";
 import { FcGoogle } from 'react-icons/fc';
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import SocialLogin from "../../Shared/SocialLogin/SocialLogin";
 import axios from "axios";
+import { useEffect } from "react";
 const Login = () => {
-    const { loginUserWithEmailPass, signInWithGoogle } = useAuth();
+    const { loginUserWithEmailPass, signInWithGoogle, user} = useAuth();
     const { register, handleSubmit, formState: { errors }, trigger } = useForm();
+    const location = useLocation();
+    const from = location?.state?.from?.pathname || "/";
+    const navigate = useNavigate();
+    console.log(from);
+
+  
+
+
     const onSubmit = (data) => {
-        console.log(data)
+        // console.log(data)
         loginUserWithEmailPass(data.email, data.password)
             .then(result => {
                 console.log(result);
@@ -34,6 +43,11 @@ const Login = () => {
             handleSubmit(onSubmit)();
         }
     };
+
+
+    useEffect(() => {
+        user && navigate(from);
+      }, [from, navigate, user])
 
 
     return (

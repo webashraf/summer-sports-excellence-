@@ -7,6 +7,7 @@ import { MdJoinRight, MdPayments } from 'react-icons/md';
 import { SiGoogleclassroom } from 'react-icons/si';
 import { Link, Outlet } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
+import Loading from '../../../Shared/Loading/Loading';
 
 const Dashboard = () => {
     // const [isAdmin] = useAdmin();
@@ -40,7 +41,7 @@ const Dashboard = () => {
 
     return (
         <div>
-            {loading ? <h2>Loading</h2> : <div className="drawer lg:drawer-open">
+            {loading ? <Loading></Loading> : <div className="drawer lg:drawer-open">
                 <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
                 <div className="drawer-content px-10 bg-white">
                     {/* Page content here */}
