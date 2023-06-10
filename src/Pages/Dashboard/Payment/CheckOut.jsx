@@ -3,8 +3,9 @@ import './Payment.css'
 import { useEffect, useState } from "react";
 import useAxiosSecure from './../../../hooks/useAxiosSecure';
 import useAuth from "../../../hooks/useAuth";
+import Swal from "sweetalert2";
 
-const CheckOut = ({ price }) => {
+const CheckOut = ({ price, course }) => {
     const [clientSecret, setClientSecrete] = useState(null);
     const stripe = useStripe();
     const elements = useElements();
@@ -15,14 +16,14 @@ const CheckOut = ({ price }) => {
     const [transectionId, setTransectionId] = useState(null);
 
 
-    console.log(price);
+    // console.log(course);
 
 
     useEffect(() => {
         if (price > 0) {
             axiosSecure.post('/createPaymentIntent', { price })
                 .then(res => {
-                    console.log(res.data);
+                    // console.log(res.data);
                     setClientSecrete(res.data.clientSecret)
                 })
         }
@@ -75,10 +76,33 @@ const CheckOut = ({ price }) => {
             console.log(confirmError);
         }
         setProcessing(false);
-        console.log(paymentIntent);
+        // console.log(paymentIntent);
         if (paymentIntent?.status === "succeeded") {
             const transectionId = paymentIntent?.id;
             setTransectionId(transectionId);
+
+            const payment = {
+                classId: course.classId,
+                className: course.className,
+                classPhoto: course.classPhoto,
+                instructorEmail: course.instructorEmail,
+                instructorName: course.instructorName,
+                price,
+                studentEmail: course.studentEmail,
+                transectionId,
+            }
+            console.log(payment);
+            axiosSecure.post(`/payment`, payment)
+                .then(res => {
+                    console.log(res.data)
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: 'Status successfully updated',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                })
         }
 
     };

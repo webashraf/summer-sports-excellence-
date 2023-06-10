@@ -64,7 +64,7 @@ const Payment = () => {
                 </table>
                 <div className={'shadow-sky-300 shadow-2xl p-10 mt-5'}>
                 <Elements stripe={stripePromise}>
-                    <CheckOut price={coursePrice} />
+                    <CheckOut price={coursePrice} course={course} />
                 </Elements>
                 </div>
             </div>
