@@ -15,32 +15,32 @@ const Dashboard = () => {
     // const [axiosSecure] = useAxiosSecure();
 
 
-    const {user} = useAuth();
+    const { user, loading } = useAuth();
     const [admin, setAdmin] = useState(null);
     const [instructor, setInstructor] = useState(null);
     const [student, setStudent] = useState(null);
 
     useEffect(() => {
         axios.get(`http://localhost:5000/isAdmin/${user?.email}`)
-        .then(res => setAdmin(res.data));
+            .then(res => setAdmin(res.data));
     }, [user]);
 
     useEffect(() => {
         axios.get(`http://localhost:5000/isInstructor/${user?.email}`)
-        .then(res => setInstructor(res.data));
-    }, [user]); 
+            .then(res => setInstructor(res.data));
+    }, [user]);
 
     useEffect(() => {
         axios.get(`http://localhost:5000/isUser/${user?.email}`)
-        .then(res => setStudent(res.data));
+            .then(res => setStudent(res.data));
     }, [user]);
 
     console.log(admin?.admin, instructor?.instructor, student?.user);
-  
+
 
     return (
         <div>
-            <div className="drawer lg:drawer-open">
+            {loading ? <h2>Loading</h2> : <div className="drawer lg:drawer-open">
                 <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
                 <div className="drawer-content px-10 bg-white">
                     {/* Page content here */}
@@ -61,23 +61,23 @@ const Dashboard = () => {
                         </div>
 
                         {admin?.admin && <div className='my-10 px-4'>
-                            <Link className='text-[15px] underline leading-3 flex items-center gap-2 mb-3' to={'/'}> <AiTwotoneHome className='text-xl'></AiTwotoneHome> Admin Home</Link>
+                            <Link className='text-[15px] underline leading-3 flex items-center gap-2 mb-3' to={'/dashboard/admin'}> <AiTwotoneHome className='text-xl'></AiTwotoneHome> Admin Home</Link>
 
                             <Link className='text-[15px] underline leading-3 flex items-center gap-2 mb-3' to={'/dashboard/manageclasses'}> <SiGoogleclassroom className='text-xl'></SiGoogleclassroom>Manage Class</Link>
 
                             <Link className='text-[15px] underline leading-3 flex items-center gap-2 mb-3' to={'/dashboard/manageuser'}> <FaUserEdit className='text-xl'></FaUserEdit>Manage User</Link>
-                        </div>                        }
-                        
+                        </div>}
+
                         {instructor?.instructor && <div className='my-10 px-4'>
-                            <Link className='text-[15px] underline leading-3 flex items-center gap-2 mb-3' to={'/'}> <AiTwotoneHome className='text-xl'></AiTwotoneHome> Instructor Home</Link>
+                            <Link className='text-[15px] underline leading-3 flex items-center gap-2 mb-3' to={'/dashboard/instructor'}> <AiTwotoneHome className='text-xl'></AiTwotoneHome> Instructor Home</Link>
 
                             <Link className='text-[15px] underline leading-3 flex items-center gap-2 mb-3' to={'/dashboard/addclass'}> <FaBookMedical className='text-xl'></FaBookMedical>Add a Class</Link>
 
                             <Link className='text-[15px] underline leading-3 flex items-center gap-2 mb-3' to={'/dashboard/myclasses'}> <BsBookHalf className='text-xl'></BsBookHalf>My Class</Link>
-                        </div>    }                    
-                        
-                        {student?.user && 'user' && <div className='my-10 px-4'>
-                            <Link className='text-[15px] underline leading-3 flex items-center gap-2 mb-3' to={'/'}> <AiTwotoneHome className='text-xl'></AiTwotoneHome> User Home</Link>
+                        </div>}
+
+                        {(!instructor?.instructor && !admin?.admin) && 'user' && <div className='my-10 px-4'>
+                            <Link className='text-[15px] underline leading-3 flex items-center gap-2 mb-3' to={'/dashboard/student'}> <AiTwotoneHome className='text-xl'></AiTwotoneHome> User Home</Link>
 
                             <Link className='text-[15px] underline leading-3 flex items-center gap-2 mb-3' to={'/dashboard/selectedClass'}> <FaAddressCard className='text-xl'></FaAddressCard>My Selected Classes</Link>
 
@@ -87,7 +87,7 @@ const Dashboard = () => {
                     </ul>
 
                 </div>
-            </div>
+            </div>}
         </div>
     );
 };
