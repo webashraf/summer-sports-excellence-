@@ -1,5 +1,5 @@
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
-import './Payment.css'
+import styles from'./styles.module.css'
 import { useEffect, useState } from "react";
 import useAxiosSecure from './../../../hooks/useAxiosSecure';
 import useAuth from "../../../hooks/useAuth";

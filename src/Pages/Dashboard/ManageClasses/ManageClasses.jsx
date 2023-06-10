@@ -18,6 +18,7 @@ const ManageClasses = () => {
     console.log(allClass);
 
     const handleUpdateStatus = (id, status) => {
+
         axios.put(`http://localhost:5000/updateStatus/${id}`, {status})
         .then(res => {
             // console.log(res.data);
@@ -103,7 +104,7 @@ const ManageClasses = () => {
                             <td className={classItem.status === 'approved' && 'text-emerald-700 font-bold' || classItem.status === 'deny' && 'text-red-500 font-bold' || 'text-yellow-500 font-bold'}>{classItem?.status}</td>
                             <th>
                                 <button onClick={() => handleUpdateStatus(classItem._id, 'approved')} 
-                                disabled={classItem.status !== 'pending'}
+                                // disabled={classItem.status !== 'pending'}
                                 className="btn bg-emerald-900 btn-block text-white btn-xs">Approve</button>
                                 <button onClick={() => handleUpdateStatus(classItem._id, 'deny')}
                                 disabled={classItem.status !== 'pending'}
