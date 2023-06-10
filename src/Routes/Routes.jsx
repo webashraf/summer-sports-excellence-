@@ -11,6 +11,9 @@ import ManageUser from "../Pages/Dashboard/ManageUser/ManageUser";
 import ClassesPage from "../Pages/ClassesPage/ClassesPage";
 import SelectedClass from "../Pages/Dashboard/SelectedClass/SelectedClass";
 import Payment from "../Pages/Dashboard/Payment/Payment";
+import EnrolledClass from "../Pages/Dashboard/EnrolledClass/EnrolledClass";
+import PaymentHistory from "../Pages/Dashboard/PaymentHistory/PaymentHistory";
+import InstructorsPage from "../Pages/InstructorsPage/InstructorsPage";
 
 
 const router = createBrowserRouter([
@@ -33,9 +36,14 @@ const router = createBrowserRouter([
             {
                 path: 'classes',
                 element: <ClassesPage></ClassesPage>
+            },
+            {
+                path: 'instructors',
+                element: <InstructorsPage></InstructorsPage>
+
             }
         ]
-    }, 
+    },
     {
         path: 'dashboard',
         element: <Dashboard></Dashboard>,
@@ -63,8 +71,16 @@ const router = createBrowserRouter([
             {
                 path: '/dashboard/payment/:id',
                 element: <Payment></Payment>,
-                loader: ({params})=> fetch(`http://localhost:5000/single_course_for_payment/${params.id}`)
-            }
+                loader: ({ params }) => fetch(`http://localhost:5000/single_course_for_payment/${params.id}`)
+            },
+            {
+                path: '/dashboard/enrolledClass',
+                element: <EnrolledClass></EnrolledClass>
+            }, 
+            {
+                path: '/dashboard/paymentHistory',
+                element: <PaymentHistory></PaymentHistory>
+            },
         ]
     }
 ])

@@ -88,6 +88,7 @@ const CheckOut = ({ price, course }) => {
                 instructorEmail: course.instructorEmail,
                 instructorName: course.instructorName,
                 price,
+                paymentTime: new Date(),
                 studentEmail: course.studentEmail,
                 transectionId,
             }

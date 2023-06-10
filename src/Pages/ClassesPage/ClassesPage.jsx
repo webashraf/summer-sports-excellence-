@@ -11,23 +11,25 @@ const ClassesPage = () => {
     const [student, setStudent] = useState(null);
     console.log('student', user?.email);
 
-    useEffect(() => {
-        axios.get(`http://localhost:5000/isUser/${user?.email}`)
-            .then(res => setStudent(res.data));
-    }, [user]);
-    
 
-
-
-    const { data: classes = [], } = useQuery({
+    const { data: classes = [] } = useQuery({
         queryKey: ['allClasses'],
-        enabled: !!user,
         queryFn: async () => {
             const res = await axios.get(`http://localhost:5000/approvedClasses`)
             return res.data;
         }
     })
     console.log(classes);
+
+
+
+
+    useEffect(() => {
+        axios.get(`http://localhost:5000/isUser/${user?.email}`)
+            .then(res => setStudent(res.data));
+    }, [user]);
+    
+
 
 
     const handleSelectedClass = async(id) => {

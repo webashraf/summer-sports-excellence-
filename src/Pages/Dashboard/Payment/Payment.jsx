@@ -26,7 +26,7 @@ const Payment = () => {
     return (
         <>
             <div className='shadow-2xl p-10 w-[80%] mx-auto mt-20'>
-            <table className="table shadow-2xl">
+            {course && <table className="table shadow-2xl">
                     {/* head */}
                     <thead className='bg-red'>
                         <tr className='bg-slate-800 rounded-t-lg text-white'>
@@ -61,7 +61,7 @@ const Payment = () => {
 
                         </tr>
                         </tbody>
-                </table>
+                </table>}
                 <div className={'shadow-sky-300 shadow-2xl p-10 mt-5'}>
                 <Elements stripe={stripePromise}>
                     <CheckOut price={coursePrice} course={course} />

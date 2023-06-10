@@ -25,7 +25,6 @@ const Dashboard = () => {
         .then(res => setAdmin(res.data));
     }, [user]);
 
-    
     useEffect(() => {
         axios.get(`http://localhost:5000/isInstructor/${user?.email}`)
         .then(res => setInstructor(res.data));
@@ -69,7 +68,7 @@ const Dashboard = () => {
                             <Link className='text-[15px] underline leading-3 flex items-center gap-2 mb-3' to={'/dashboard/manageuser'}> <FaUserEdit className='text-xl'></FaUserEdit>Manage User</Link>
                         </div>                        }
                         
-                        {instructor?.instructor && 'instructor' && <div className='my-10 px-4'>
+                        {instructor?.instructor && <div className='my-10 px-4'>
                             <Link className='text-[15px] underline leading-3 flex items-center gap-2 mb-3' to={'/'}> <AiTwotoneHome className='text-xl'></AiTwotoneHome> Instructor Home</Link>
 
                             <Link className='text-[15px] underline leading-3 flex items-center gap-2 mb-3' to={'/dashboard/addclass'}> <FaBookMedical className='text-xl'></FaBookMedical>Add a Class</Link>
@@ -82,8 +81,8 @@ const Dashboard = () => {
 
                             <Link className='text-[15px] underline leading-3 flex items-center gap-2 mb-3' to={'/dashboard/selectedClass'}> <FaAddressCard className='text-xl'></FaAddressCard>My Selected Classes</Link>
 
-                            <Link className='text-[15px] underline leading-3 flex items-center gap-2 mb-3' to={'/'}> <MdJoinRight className='text-xl'></MdJoinRight>My Enrolled Classes</Link>
-                            <Link className='text-[15px] underline leading-3 flex items-center gap-2 mb-3' to={'/'}> <MdPayments className='text-xl'></MdPayments>Payment</Link>
+                            <Link className='text-[15px] underline leading-3 flex items-center gap-2 mb-3' to={'/dashboard/EnrolledClass'}> <MdJoinRight className='text-xl'></MdJoinRight>My Enrolled Classes</Link>
+                            <Link className='text-[15px] underline leading-3 flex items-center gap-2 mb-3' to={'/dashboard/paymentHistory'}> <MdPayments className='text-xl'></MdPayments>Payment History</Link>
                         </div>}
                     </ul>
 

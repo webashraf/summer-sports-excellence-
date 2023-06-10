@@ -7,7 +7,7 @@ const ManageClasses = () => {
     const {user, loading} = useAuth()
 
     const {data: allClass = [], refetch} = useQuery({
-        queryKey: ['allClass'],
+        queryKey: ['allClass', user],
         enabled: !loading && !!user,
         queryFn: async () => {
             const res = await axios.get(`http://localhost:5000/allClasses`)
