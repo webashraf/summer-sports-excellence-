@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import useAuth from "../../hooks/useAuth";
+import ImageHeading from "../../Shared/ImgHeading/ImageHeading";
 
 const ClassesPage = () => {
     const { user } = useAuth();
@@ -28,11 +29,11 @@ const ClassesPage = () => {
         axios.get(`http://localhost:5000/isUser/${user?.email}`)
             .then(res => setStudent(res.data));
     }, [user]);
-    
 
 
 
-    const handleSelectedClass = async(id) => {
+
+    const handleSelectedClass = async (id) => {
 
         if (!user) {
             Swal.fire({
@@ -51,9 +52,9 @@ const ClassesPage = () => {
         }
 
         else {
-            const studentEmail = {email: user?.email}
+            const studentEmail = { email: user?.email }
             console.log(studentEmail);
-           await axios.post(`http://localhost:5000/selectedClass/${id}`, studentEmail)
+            await axios.post(`http://localhost:5000/selectedClass/${id}`, studentEmail)
                 .then(res => {
                     console.log(res.data)
                     if (res.data.acknowledged) {
@@ -83,10 +84,11 @@ const ClassesPage = () => {
 
 
     return (
-        <div className="px-20">
-            <div className="grid grid-cols-3 gap-6">
+        <div className="">
+            <ImageHeading hText={"Our All Classes"}></ImageHeading>
+            <div className="grid grid-cols-3 gap-6 px-10 py-20">
                 {
-                    classes.map(classItem => <div key={classItem._id} className={classItem.seats < 1 ? 'card w-80 mx-auto bg-red-400 shadow-xl text-slate-200' : "card w-80 mx-auto bg-base-100 shadow-xl"}>
+                    classes.map(classItem => <div key={classItem._id} className={classItem.seats < 1 ? 'card w-[370] mx-auto bg-red-400 shadow-xl text-slate-200' : "card w-[380px] mx-auto bg-base-100 shadow-xl"}>
                         <figure><img src={classItem.photoUrl} className="h-[180px] object-cover w-full" alt="Sports Image" /></figure>
                         <div className="card-body">
                             <h2 className="card-title">

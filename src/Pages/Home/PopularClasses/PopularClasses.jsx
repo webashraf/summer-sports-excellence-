@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import Heading from '../../../Shared/Heading/Heading';
 
 const PopularClasses = () => {
     const [classes, setClasses] = useState([]);
@@ -12,10 +13,10 @@ const PopularClasses = () => {
 
     return (
         <div>
-            Popular Classes
+            <Heading pText={'See our best classes'} hText={'Popular Classes'}></Heading>
             <div className='grid grid-cols-3 w-[95%] mx-auto gap-4'>
                 {
-                    classes.slice(0, 6).map(classItem => <div key={classItem._id} className="card glass">
+                    classes.slice(0, 6).map(classItem => <div key={classItem._id} className="card glass shadow-2xl border-none shadow-indigo-200">
                         <figure><img className='h-[200px] w-full object-cover' src={classItem.photoUrl} alt="car!" /></figure>
                         <div className="card-body">
                             <h2 className="card-title text-2xl">{classItem.className}</h2>
