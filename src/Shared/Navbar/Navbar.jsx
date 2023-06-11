@@ -49,7 +49,7 @@ const Navbar = () => {
         <NavLink to={'/classes'} className={({ isActive }) => isActive ? 'text-red-600' : 'text-primary'}>Classes</NavLink>
 
         {user && <NavLink to={'/dashboard'} className={({ isActive }) => isActive ? 'text-red-600' : 'text-primary'}>Dashboard</NavLink>}
-        <button onClick={handleLogOut} className="btn md:hidden">Logout</button>
+        {!user && <button onClick={handleLogOut} className="btn md:hidden">Logout</button>}
 
     </>
 
