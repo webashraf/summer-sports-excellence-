@@ -1,3 +1,4 @@
+import { JackInTheBox, Slide } from 'react-awesome-reveal';
 import animationData1 from '../../../../public/football_animation.json';
 // import { Lottie } from 'react-lottie';
 import Lottie from 'react-lottie';
@@ -16,7 +17,7 @@ const WhySports = () => {
         <div className='flex items-center flex-col-reverse md:flex-row justify-between my-36 md:px-10'>
 
             <div className="md:w-[60%] py-8">
-                <div className=" mx-auto px-6">
+                <div className=" mx-auto px-5">
                     <h2 className="text-4xl md:text-4xl lg:text-7xl font-bold text-left mb-4 text-base-content">Why Sports for Children?</h2>
                     <p className="text-lg md:text-xl lg:text-lg text-left mb-8 text-base-content">
                         Engaging in sports activities can be highly beneficial for children's physical, mental, and social development. Here are some key reasons why sports are important for children:
@@ -47,11 +48,14 @@ const WhySports = () => {
             </div>
             <div>
 
-                <Lottie
-                    options={defaultOptions}
-                    height={350}
-                    width={350}
-                />
+                <JackInTheBox>
+                    <Lottie
+                        options={defaultOptions}
+                        height={350}
+                        width={350}
+                    />
+                </JackInTheBox>
+
             </div>
         </div>
     );
