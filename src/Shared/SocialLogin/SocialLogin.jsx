@@ -1,7 +1,7 @@
-import React from 'react';
-import useAuth from '../../hooks/useAuth';
 import axios from 'axios';
+import React from 'react';
 import { FcGoogle } from 'react-icons/fc';
+import useAuth from '../../hooks/useAuth';
 
 
 const SocialLogin = () => {
@@ -12,7 +12,7 @@ const SocialLogin = () => {
                 console.log(res.user);
                 const signInUser = res.user;
                 const user = {name: signInUser.displayName, email: signInUser.email, photoUrl: signInUser.photoURL}
-                axios.post(`http://localhost:5000/users`, user)
+                axios.post(`https://a12-server-eight.vercel.app/users`, user)
                     .then(res => console.log(res.data))
             })
     }

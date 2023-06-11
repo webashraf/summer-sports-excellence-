@@ -1,7 +1,6 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
-import useAuth from "../../../hooks/useAuth";
 import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
+import useAuth from "../../../hooks/useAuth";
 
 const MyClasses = () => {
     const {user} = useAuth()
@@ -11,7 +10,7 @@ const MyClasses = () => {
         queryKey: ['classs', user?.email],
         enabled: !!user?.email,
         queryFn: async () => {
-            const res = await axios.get(`http://localhost:5000/allClasses/${user?.email}`)
+            const res = await axios.get(`https://a12-server-eight.vercel.app/allClasses/${user?.email}`)
             return res.data;
         }
     })

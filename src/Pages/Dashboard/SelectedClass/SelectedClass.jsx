@@ -1,19 +1,16 @@
 import { useQuery } from '@tanstack/react-query';
+import { BsFillTrashFill } from 'react-icons/bs';
+import { Link } from 'react-router-dom';
+import Swal from 'sweetalert2';
 import useAuth from '../../../hooks/useAuth';
 import useAxiosSecure from '../../../hooks/useAxiosSecure';
-import { FaAmazonPay, FaBeer, FaCcAmazonPay } from 'react-icons/fa';
-import { BsFillTrashFill, BsTrash3 } from 'react-icons/bs';
-import Swal from 'sweetalert2';
-import axios from 'axios';
-import { Link } from 'react-router-dom';
 
 const SelectedClass = () => {
-    const allClass = [1];
-    const {user, loading} = useAuth();
+    const { user, loading } = useAuth();
     const [axiosSecure] = useAxiosSecure();
 
 
-    const {data: selectedClasses = [], refetch} = useQuery({
+    const { data: selectedClasses = [], refetch } = useQuery({
         queryKey: ['selectedClasses', user?.email],
         enabled: !!user && loading === false,
         queryFn: async () => {
@@ -33,53 +30,24 @@ const SelectedClass = () => {
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
             confirmButtonText: 'Yes, delete it!'
-          }).then((result) => {
+        }).then((result) => {
             if (result.isConfirmed) {
-
 
                 axiosSecure.delete(`deleteSelectedClass/${id}`)
-                .then(res => {
-                    console.log(res.data);
-                    if (res.data.acknowledged) {
-                        Swal.fire(
-                          'Deleted!',
-                          'Your file has been deleted.',
-                          'success'
-                        )
-                        refetch();
-                    }
-                })
-
-
-
-
+                    .then(res => {
+                        console.log(res.data);
+                        if (res.data.acknowledged) {
+                            Swal.fire(
+                                'Deleted!',
+                                'Your file has been deleted.',
+                                'success'
+                            )
+                            refetch();
+                        }
+                    })
             }
-          })
+        })
     }
-
-    const handlePayBtn= id => {
-        Swal.fire({
-            title: 'Are you sure?',
-            text: "You are pay now for this course.",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes, pay it!'
-          }).then((result) => {
-            if (result.isConfirmed) {
-            //   Swal.fire(
-            //     'Deleted!',
-            //     'Your course has been deleted.',
-            //     'success'
-            //   )
-            }
-          })
-    }
-
-
-
-
 
 
 
@@ -101,7 +69,7 @@ const SelectedClass = () => {
                     </thead>
                     <tbody>
 
-                        {selectedClasses.map((classItem , i) => <tr key={classItem} className={i%2 === 0 ?  " bg-slate-200" : "hover"}>
+                        {selectedClasses.map((classItem, i) => <tr key={classItem} className={i % 2 === 0 ? " bg-slate-200" : "hover"}>
                             <th>{i + 1}</th>
                             <td>
                                 <div className="flex items-center space-x-3">
@@ -122,18 +90,16 @@ const SelectedClass = () => {
                             <td className="text-center">${classItem.price}</td>
                             <th className='flex justify-around'>
                                 <Link to={`/dashboard/payment/${classItem._id}`} className="btn bg-black text-white btn-md">
-                                    {/* <FaCcAmazonPay className='text-5xl '></FaCcAmazonPay> */}
+
                                     PAY
                                 </Link>
-                        
-                                <button 
-                                onClick={() => handleDelete(classItem._id)}
-                                className="btn btn-md "><BsFillTrashFill className='text-red-600 text-3xl'></BsFillTrashFill></button>
-                             
+
+                                <button
+                                    onClick={() => handleDelete(classItem._id)}
+                                    className="btn btn-md "><BsFillTrashFill className='text-red-600 text-3xl'></BsFillTrashFill></button>
+
                             </th>
                         </tr>)}
-
-
 
 
                     </tbody>

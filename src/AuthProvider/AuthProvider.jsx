@@ -1,7 +1,7 @@
+import axios from "axios";
 import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
 import app from './../firebase/firebase.config';
-import axios from "axios";
 
 export const ContextProvider = createContext();
 const auth = getAuth(app)
@@ -44,7 +44,7 @@ const AuthProvider = ({ children }) => {
             setUser(currentlyLoginUser);
             console.log(currentlyLoginUser);
             if (currentlyLoginUser) {
-                axios.post(`http://localhost:5000/jwt`, {email: currentlyLoginUser.email})
+                axios.post(`https://a12-server-eight.vercel.app/jwt`, {email: currentlyLoginUser.email})
                 .then(result => {
                     console.log(result.data);
                     localStorage.setItem('accessToken', result.data.token)
@@ -53,8 +53,8 @@ const AuthProvider = ({ children }) => {
             }
             else{
                 localStorage.removeItem('accessToken');
+                setLoading(false);
             }
-            // setLoading(false);
         })
 
 
@@ -63,9 +63,13 @@ const AuthProvider = ({ children }) => {
         }
 
     }, [])
+
+
     const authInfo = {
         user, createUserWithEmailAndPass, updateUserProfile, signOutUser, loginUserWithEmailPass, signInWithGoogle, loading
     }
+
+
 
     return (
         <ContextProvider.Provider value={authInfo}>

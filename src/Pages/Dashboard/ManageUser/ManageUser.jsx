@@ -18,7 +18,7 @@ const ManageUser = () => {
 
     const handleUserRoleBtn = (id, role) => {
         console.log(id, role);
-        axios.put(`http://localhost:5000/adminRoleUpdate/${id}`, { role })
+        axios.put(`https://a12-server-eight.vercel.app/adminRoleUpdate/${id}`, { role })
             .then(res => {
                 console.log(res.data);
 

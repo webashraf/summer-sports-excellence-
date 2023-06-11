@@ -1,10 +1,9 @@
-import { useForm } from "react-hook-form";
-import { FcGoogle } from 'react-icons/fc';
-import { Link, useLocation, useNavigate } from "react-router-dom";
-import useAuth from "../../hooks/useAuth";
-import SocialLogin from "../../Shared/SocialLogin/SocialLogin";
 import axios from "axios";
 import { useEffect } from "react";
+import { useForm } from "react-hook-form";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import SocialLogin from "../../Shared/SocialLogin/SocialLogin";
+import useAuth from "../../hooks/useAuth";
 const Login = () => {
     const { loginUserWithEmailPass, signInWithGoogle, user} = useAuth();
     const { register, handleSubmit, formState: { errors }, trigger } = useForm();
@@ -13,7 +12,10 @@ const Login = () => {
     const navigate = useNavigate();
     console.log(from);
 
-  
+
+
+
+
 
 
     const onSubmit = (data) => {
@@ -27,7 +29,7 @@ const Login = () => {
                     photoUrl: result.user.photoURL
                 }
                 console.log(newUser);
-                axios.post(`http://localhost:5000/users`, newUser )
+                axios.post(`https://a12-server-eight.vercel.app/users`, newUser )
                 .then(res => console.log(res.data))
             })
             .catch(errors => console.log(errors))
@@ -48,7 +50,6 @@ const Login = () => {
     useEffect(() => {
         user && navigate(from);
       }, [from, navigate, user])
-
 
     return (
         <div>

@@ -1,15 +1,16 @@
+import axios from "axios";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
-import useAuth from "../../hooks/useAuth";
-import axios from "axios";
 import SocialLogin from "../../Shared/SocialLogin/SocialLogin";
-import { useState } from "react";
+import useAuth from "../../hooks/useAuth";
 
 const Register = () => {
     const { createUserWithEmailAndPass, updateUserProfile, user } = useAuth();
 
     const { register, handleSubmit, formState: { errors }, trigger } = useForm();
-    const [confirmPassError, setConfirmPassError] = useState(null);
+    const [confirmPassError, setConfirmPassError] = useState('');
+    console.log(confirmPassError);
     const onSubmit = data => {
         console.log(data)
         // console.log(data.confirmPassword, data.password)
@@ -17,9 +18,10 @@ const Register = () => {
 
 
         if (data.password !== data.confirmPassword) {
-            return setConfirmPassError('Password is not match')
+            setConfirmPassError('Password is not match')
+            return
         }
-        setConfirmPassError(null);
+        // setConfirmPassError(null);
 
 
 
@@ -27,15 +29,15 @@ const Register = () => {
             .then(result => {
                 console.log(result);
                 updateUserProfile(data.name, data.image)
-                
+
                 const newUser = {
                     name: data.name,
                     email: data.email,
                     photoUrl: data.image
                 }
                 console.log(newUser);
-                axios.post(`http://localhost:5000/users`, newUser )
-                .then(res => console.log(res.data))
+                axios.post(`https://a12-server-eight.vercel.app/users`, newUser)
+                    .then(res => console.log(res.data))
 
 
                 // signOutUser();
@@ -67,22 +69,23 @@ const Register = () => {
 
                             <div className="form-control">
                                 <label className="label">
-                                    <span className="label-text">Name</span>
+                                    <span className="label-text">Name*</span>
                                 </label>
                                 <input type="name"  {...register("name", { required: true })} placeholder="name" className="input input-bordered" />
+                                {errors?.name?.type === 'required' && <span className="text-yellow-500 font-bold">Field is required.</span>}
                             </div>
                             <div className="form-control">
                                 <label className="label">
-                                    <span className="label-text">Email</span>
+                                    <span className="label-text">Email*</span>
                                 </label>
                                 <input type="email"  {...register("email", { required: true })} placeholder="email" className="input input-bordered" />
-                                {errors?.password?.type === 'required' && <span className="text-yellow-500 font-bold">Field is required.</span>}
+                                {errors?.email?.type === 'required' && <span className="text-yellow-500 font-bold">Field is required.</span>}
                             </div>
 
 
                             <div className="form-control">
                                 <label className="label">
-                                    <span className="label-text">Password</span>
+                                    <span className="label-text">Password*</span>
                                 </label>
                                 <input type="password" {...register("password",
                                     {
@@ -102,11 +105,11 @@ const Register = () => {
                                 <label className="label">
                                     <a href="#" className="label-text-alt link link-hover">TODO</a>
                                 </label>
-                            </div>                            
-                            
+                            </div>
+
                             <div className="form-control">
                                 <label className="label">
-                                    <span className="label-text">Confirm Password</span>
+                                    <span className="label-text">Confirm Password*</span>
                                 </label>
                                 <input type="password" {...register("confirmPassword",
                                     {
@@ -118,10 +121,10 @@ const Register = () => {
                                     }
                                 )}
                                     placeholder="confirm password" className="input input-bordered" />
-                                {errors.password && <p className="text-yellow-500 font-bold">{errors.password?.message}</p>}
-                                {errors?.password?.type === 'required' && <span className="text-yellow-500 font-bold">Field is required.</span>}
-                                {errors?.password?.type === 'minLength' && <span className="text-yellow-500 font-bold">Password less then 6 characters</span>}
-                                
+                                {errors.confirmPassword && <p className="text-yellow-500 font-bold">{errors.password?.message}</p>}
+                                {errors?.confirmPassword?.type === 'required' && <span className="text-yellow-500 font-bold">Field is required.</span>}
+                                {errors?.confirmPassword?.type === 'minLength' && <span className="text-yellow-500 font-bold">Password less then 6 characters</span>}
+
                                 {confirmPassError && <span className="text-yellow-500 font-bold">{confirmPassError}</span>}
 
 
@@ -131,12 +134,10 @@ const Register = () => {
                             </div>
                             <div className="form-control">
                                 <label className="label">
-                                    <span className="label-text">Photo URL</span>
+                                    <span className="label-text">Photo URL*</span>
                                 </label>
                                 <input type="url" {...register("image", { required: true })} placeholder="image" className="input input-bordered" />
-                                <label className="label">
-                                    <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
-                                </label>
+
                             </div>
 
 

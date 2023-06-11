@@ -13,9 +13,9 @@ const WhySports = () => {
     };
 
     return (
-        <div className='flex items-center my-36 px-10'>
+        <div className='flex items-center flex-col-reverse md:flex-row my-36 px-10'>
 
-            <div className="w-[60%] py-8">
+            <div className="md:w-[60%] py-8">
                 <div className=" mx-auto px-4">
                     <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-left mb-4">Why Sports for Children?</h2>
                     <p className="text-lg md:text-xl lg:text-2xl text-gray-600 text-left mb-8">
@@ -49,8 +49,8 @@ const WhySports = () => {
 
                 <Lottie
                     options={defaultOptions}
-                    height={400}
-                    width={400}
+                    height={350}
+                    width={350}
                 />
             </div>
         </div>

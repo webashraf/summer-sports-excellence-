@@ -8,5 +8,24 @@ export default {
     extend: {},
   },
   plugins: [require("daisyui")],
+
+  daisyui: {
+    themes: [
+      {
+        light: {
+          ...require("daisyui/src/theming/themes")["[data-theme=light]"],
+          "primary": "#698ff7",
+          "secondary": "#101010",
+          "primary-focus": "mediumblue",
+        },
+        dark: {
+          ...require("daisyui/src/theming/themes")["[data-theme=dark]"],
+          "primary": "#ffff",
+          "secondary": "#ffff",
+          "primary-focus": "mediumblue",
+        },
+      },
+    ],
+  },
 }
 

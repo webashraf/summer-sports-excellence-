@@ -3,8 +3,8 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
-import useAuth from "../../hooks/useAuth";
 import ImageHeading from "../../Shared/ImgHeading/ImageHeading";
+import useAuth from "../../hooks/useAuth";
 
 const ClassesPage = () => {
     const { user } = useAuth();
@@ -16,7 +16,7 @@ const ClassesPage = () => {
     const { data: classes = [] } = useQuery({
         queryKey: ['allClasses'],
         queryFn: async () => {
-            const res = await axios.get(`http://localhost:5000/approvedClasses`)
+            const res = await axios.get(`https://a12-server-eight.vercel.app/approvedClasses`)
             return res.data;
         }
     })
@@ -26,7 +26,7 @@ const ClassesPage = () => {
 
 
     useEffect(() => {
-        axios.get(`http://localhost:5000/isUser/${user?.email}`)
+        axios.get(`https://a12-server-eight.vercel.app/isUser/${user?.email}`)
             .then(res => setStudent(res.data));
     }, [user]);
 
@@ -54,7 +54,7 @@ const ClassesPage = () => {
         else {
             const studentEmail = { email: user?.email }
             console.log(studentEmail);
-            await axios.post(`http://localhost:5000/selectedClass/${id}`, studentEmail)
+            await axios.post(`https://a12-server-eight.vercel.app/selectedClass/${id}`, studentEmail)
                 .then(res => {
                     console.log(res.data)
                     if (res.data.acknowledged) {

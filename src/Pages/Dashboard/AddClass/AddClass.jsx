@@ -1,7 +1,7 @@
-import { useForm } from "react-hook-form";
-import useAuth from "../../../hooks/useAuth";
 import axios from "axios";
+import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
+import useAuth from "../../../hooks/useAuth";
 const AddClass = () => {
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
     const { user } = useAuth()
@@ -18,7 +18,7 @@ const AddClass = () => {
             status: 'pending',
         }
         console.log(classData);
-        axios.post('http://localhost:5000/addclass', classData)
+        axios.post('https://a12-server-eight.vercel.app/addclass', classData)
             .then(data => {
                 console.log(data.data)
                 reset()

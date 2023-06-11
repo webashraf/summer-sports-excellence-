@@ -5,7 +5,7 @@ import ImageHeading from "../../Shared/ImgHeading/ImageHeading";
 const InstructorsPage = () => {
     const [instructors, setInstructors] = useState([]);
     useEffect(() => {
-        axios.get(`http://localhost:5000/instructors`)
+        axios.get(`https://a12-server-eight.vercel.app/instructors`)
             .then(res => setInstructors(res.data))
     }, [])
     console.log(instructors);
