@@ -3,6 +3,7 @@ import { Link, NavLink } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 import { FaCloudMoon } from 'react-icons/fa';
 import { useEffect, useState } from 'react';
+import logo from "../../../public/logo.png"
 
 const Navbar = () => {
     const { signOutUser, user } = useAuth();
@@ -65,7 +66,9 @@ const Navbar = () => {
                         {menu}
                     </ul>
                 </div>
-                <Link to={'/'} className="btn btn-ghost normal-case text-xl">SummerSportsExcellence</Link>
+                <Link to={'/'} className="btn btn-ghost normal-case text-xl">
+                    <img className='w-[150px]' src={logo} alt="" />
+                </Link>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1 gap-6 uppercase font-semibold">
