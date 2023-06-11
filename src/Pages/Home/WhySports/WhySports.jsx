@@ -13,15 +13,15 @@ const WhySports = () => {
     };
 
     return (
-        <div className='flex items-center flex-col-reverse md:flex-row my-36 px-10'>
+        <div className='flex items-center flex-col-reverse md:flex-row justify-between my-36 md:px-10'>
 
             <div className="md:w-[60%] py-8">
-                <div className=" mx-auto px-4">
-                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-left mb-4">Why Sports for Children?</h2>
-                    <p className="text-lg md:text-xl lg:text-2xl text-gray-600 text-left mb-8">
+                <div className=" mx-auto px-6">
+                    <h2 className="text-4xl md:text-4xl lg:text-7xl font-bold text-left mb-4 text-base-content">Why Sports for Children?</h2>
+                    <p className="text-lg md:text-xl lg:text-lg text-left mb-8 text-base-content">
                         Engaging in sports activities can be highly beneficial for children's physical, mental, and social development. Here are some key reasons why sports are important for children:
                     </p>
-                    <ul className="text-base md:text-lg lg:text-xl text-gray-700">
+                    <ul className="text-base md:text-md text-base-content">
                         <li className="mb-2">
                             <span className="mr-2">&#8226;</span>
                             Physical Fitness: Regular participation in sports helps improve cardiovascular health, motor skills, coordination, and overall fitness levels.
