@@ -103,7 +103,7 @@ const Register = () => {
 
 
                                 <label className="label">
-                                    <a href="#" className="label-text-alt link link-hover">TODO</a>
+                                    {/* <a href="#" className="label-text-alt link link-hover">TODO</a> */}
                                 </label>
                             </div>
 
@@ -129,7 +129,7 @@ const Register = () => {
 
 
                                 <label className="label">
-                                    <a href="#" className="label-text-alt link link-hover">TODO</a>
+                                    {/* <a href="#" className="label-text-alt link link-hover">TODO</a> */}
                                 </label>
                             </div>
                             <div className="form-control">

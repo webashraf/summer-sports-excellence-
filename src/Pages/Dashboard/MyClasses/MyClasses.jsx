@@ -57,7 +57,7 @@ const MyClasses = () => {
                             <td>
                                 <h4>{classItem.className}</h4>
                             </td>
-                            <td>{classItem.feedback ? classItem.feedback : "--"}</td>
+                            <td>{classItem.adminFeedback ? classItem.adminFeedback : "--"}</td>
                             <td>{classItem.status}</td>
                             <td className="text-center">{classItem.enrolled ? classItem.enrolled : 0}</td>
                             <th>

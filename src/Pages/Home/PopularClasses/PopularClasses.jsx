@@ -1,8 +1,8 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import Heading from '../../../Shared/Heading/Heading';
+import { Zoom } from "react-awesome-reveal";
 import { Link } from 'react-router-dom';
-import { Bounce, Fade, Flip, Hinge, JackInTheBox, Slide, Zoom } from "react-awesome-reveal";
+import Heading from '../../../Shared/Heading/Heading';
 
 const PopularClasses = () => {
     const [classes, setClasses] = useState([]);
