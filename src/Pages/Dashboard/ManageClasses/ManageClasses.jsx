@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import Swal from "sweetalert2";
 import useAuth from "../../../hooks/useAuth";
+import swal from "sweetalert";
 
 const ManageClasses = () => {
     const {user, loading} = useAuth()
@@ -34,7 +35,10 @@ const ManageClasses = () => {
     }
 
 
-    const handleFeedbackBtn = async (id, data) => {
+    const handleFeedbackBtn = async (id) => {
+        // swal({
+        //     content: "input",
+        //   });
         const { value: text } = await Swal.fire({
             input: 'textarea',
             inputLabel: 'Message',

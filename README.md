@@ -10,6 +10,7 @@ Website Features:
 *3 Dashboard.
 
 Used Packages:
+***
 *swiperjs for slider.
 *React-awesome-reveal for scroll animation.
 *lottie animation for animation cartoon.

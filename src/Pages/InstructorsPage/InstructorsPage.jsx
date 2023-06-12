@@ -20,12 +20,12 @@ const InstructorsPage = () => {
 
                             <div className="space-y-3">
                                 <h2 className="card-title text-2xl"><span className="font-bold">Name : </span>{instructor?.name}</h2>
-                                <p className="text-xl"><span className="font-bold">Email : </span>{instructor?.email}</p>
-                                <p className="text-xl"><span className="font-bold">Total Class : </span>{instructor?.totalClass ? instructor?.totalClass : 0}</p>
+                                <p className="text-lg"><span className="font-bold">Email : </span>{instructor?.email}</p>
+                                <p className="text-lg"><span className="font-bold">Total Class : </span>{instructor?.totalClass ? instructor?.totalClass : 0}</p>
                                 <ul>
-                                    <span className="font-bold text-xl">Class Name : </span>
+                                    <span className="font-bold text-lg">Class Name : </span>
                                     {
-                                        instructor?.classes ? instructor?.classes.map((className, i) => <li className="ml-6 text-lg list-decimal" key={i}>{className}</li>) : <h4>1. Class name is not found</h4>
+                                        instructor?.classes ? instructor?.classes.map((className, i) => <li className="ml-6 text-md list-decimal" key={i}>{className}</li>) : <h4>1. Class name is not found</h4>
                                     }
                                 </ul>
                             </div>

@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import useAuth from '../../../hooks/useAuth';
 import useAxiosSecure from '../../../hooks/useAxiosSecure';
+import swal from 'sweetalert';
 
 const SelectedClass = () => {
     const { user, loading } = useAuth();
@@ -22,6 +23,9 @@ const SelectedClass = () => {
     console.log(selectedClasses);
 
     const handleDelete = id => {
+        // swal({
+        //     content: "input",
+        //   });
         Swal.fire({
             title: 'Are you sure?',
             text: "You won't be able to revert this!",

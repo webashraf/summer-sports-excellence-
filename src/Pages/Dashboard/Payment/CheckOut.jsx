@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import useAxiosSecure from './../../../hooks/useAxiosSecure';
 import useAuth from "../../../hooks/useAuth";
 import Swal from "sweetalert2";
+import swal from "sweetalert";
 
 const CheckOut = ({ price, course }) => {
     const [clientSecret, setClientSecrete] = useState(null);
@@ -102,6 +103,7 @@ const CheckOut = ({ price, course }) => {
                         showConfirmButton: false,
                         timer: 1500
                     })
+                    // swal( "success" ,  "Something went wrong!" ,  "error" )
                 })
         }
 
