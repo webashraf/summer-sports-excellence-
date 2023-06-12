@@ -5,6 +5,7 @@ import Swal from 'sweetalert2';
 import useAuth from '../../../hooks/useAuth';
 import useAxiosSecure from '../../../hooks/useAxiosSecure';
 import swal from 'sweetalert';
+import Loading from '../../../Shared/Loading/Loading';
 
 const SelectedClass = () => {
     const { user, loading } = useAuth();
@@ -23,9 +24,7 @@ const SelectedClass = () => {
     console.log(selectedClasses);
 
     const handleDelete = id => {
-        // swal({
-        //     content: "input",
-        //   });
+
         Swal.fire({
             title: 'Are you sure?',
             text: "You won't be able to revert this!",
@@ -58,7 +57,7 @@ const SelectedClass = () => {
 
     return (
         <div>
-            <div className="overflow-x-auto">
+            {!selectedClasses ? <Loading></Loading> : <div className="overflow-x-auto">
                 <table className="table">
                     {/* head */}
                     <thead className='bg-red'>
@@ -108,7 +107,7 @@ const SelectedClass = () => {
 
                     </tbody>
                 </table>
-            </div>
+            </div>}
         </div>
     );
 };

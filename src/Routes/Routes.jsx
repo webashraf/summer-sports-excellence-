@@ -17,6 +17,7 @@ import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
 import PrivateRoute from "./PrivateRoutes/PrivateRoute";
 import Feedback from "../Pages/Dashboard/Dashboard/Feedback/Feedback";
+import AdminPrivateRoute from "./PrivateRoutes/AdminPrivateRoute";
 
 
 const router = createBrowserRouter([

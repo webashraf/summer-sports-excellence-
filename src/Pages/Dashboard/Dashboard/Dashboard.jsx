@@ -58,9 +58,9 @@ const Dashboard = () => {
 
     return (
         <div className='relative'>
-            {loading ? <Loading></Loading> : <div className="drawer lg:drawer-open">
+            {!user ? <Loading></Loading> : <div className="drawer lg:drawer-open">
                 <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-                <div className="drawer-content px-10 bg-white">
+                <div className="drawer-content px-10 bg-white ">
                     {/* Page content here */}
                     <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">Open drawer</label>
                     <Outlet></Outlet>
@@ -68,7 +68,7 @@ const Dashboard = () => {
                 </div>
                 <div className="drawer-side fixed left-0 top-0">
                     <label htmlFor="my-drawer-2" className="drawer-overlay mt-0"></label>
-                    <ul className="menu p-3 w-60 h-full text-white bg-cyan-950 px-4">
+                    <ul className="menu p-3 w-60 text-white bg-cyan-950 px-4 sticky left-0 top-0 h-screen">
 
                         <li className='flex flex-col items-center'>
                             <h1 className='text-sm font-bold'>SummerSportsExcellence</h1>
