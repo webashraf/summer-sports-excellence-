@@ -2,12 +2,12 @@
 Website name: summerCampExcellence.
 
 Website Features:
-*Firebase login and registration.
-*Stripe Payment system.
-*Use private route.
-*Use tanStack query.
-*Use Axios and Axios Interceptor.
-*3 Dashboard.
+* Firebase login and registration.
+* Stripe Payment system.
+* Use private route.
+* Use tanStack query.
+* Use Axios and Axios Interceptor.
+* Dashboard for admin, instructor, and student.
 ***
 
 Used Packages:
