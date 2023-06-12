@@ -10,7 +10,7 @@ const InstructorsPage = () => {
     }, [])
     console.log(instructors);
     return (
-        <div className="pt-[75px]">
+        <div className="md:pt-[75px]">
             <ImageHeading hText={'Our Instructors'}></ImageHeading>
             <div className="grid grid-cols-2 gap-6 py-20 px-10">
                 {

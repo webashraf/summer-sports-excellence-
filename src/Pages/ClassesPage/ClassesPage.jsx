@@ -85,7 +85,7 @@ const ClassesPage = () => {
 
 
     return (
-        <div className="pt-[75px]">
+        <div className="md:pt-[75px]">
             
             <ImageHeading hText={"Our All Classes"}></ImageHeading>
             <div className="grid grid-cols-3 gap-6 px-10 py-20">
