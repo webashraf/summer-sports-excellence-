@@ -29,6 +29,7 @@ const ClassesPage = () => {
         axios.get(`https://a12-server-eight.vercel.app/isUser/${user?.email}`)
             .then(res => setStudent(res.data));
     }, [user]);
+    console.log(student);
 
 
 
@@ -85,6 +86,7 @@ const ClassesPage = () => {
 
     return (
         <div className="">
+            
             <ImageHeading hText={"Our All Classes"}></ImageHeading>
             <div className="grid grid-cols-3 gap-6 px-10 py-20">
                 {

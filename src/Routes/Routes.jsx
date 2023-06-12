@@ -16,6 +16,7 @@ import InstructorsPage from "../Pages/InstructorsPage/InstructorsPage";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
 import PrivateRoute from "./PrivateRoutes/PrivateRoute";
+import Feedback from "../Pages/Dashboard/Dashboard/Feedback/Feedback";
 
 
 const router = createBrowserRouter([
@@ -101,6 +102,10 @@ const router = createBrowserRouter([
             {
                 path: '/dashboard/paymentHistory',
                 element: <PaymentHistory></PaymentHistory>
+            },
+            {
+                path: '/dashboard/feedback/:id',
+                element: <Feedback></Feedback>
             },
         ]
     }
