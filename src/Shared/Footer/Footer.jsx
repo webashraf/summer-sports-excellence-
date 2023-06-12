@@ -2,8 +2,9 @@ import logo from "../../../public/logo.png"
 
 const Footer = () => {
     return (
-        <div>
-            <footer className="footer p-10 bg-base-200 text-base-content">
+        <div className="bg-[url('https://images.pexels.com/photos/114296/pexels-photo-114296.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')] bg-cover bg-center">
+
+            <footer className="footer p-10 bg-[#212020d1] text-[#fff] h-full">
                 <div>
                     <div className="flex flex-col items-center">
                         <img className="w-[200px]" src={logo} alt="" />
@@ -15,7 +16,6 @@ const Footer = () => {
                     <a className="link link-hover">Football</a>
                     <a className="link link-hover">Cricket</a>
                     <a className="link link-hover">Basket Ball</a>
-                    <a className="link link-hover">Kabaddi</a>
                     <a className="link link-hover">And 20+</a>
                 </div>
                 <div>
@@ -25,17 +25,12 @@ const Footer = () => {
                     <a className="link link-hover">Cookie policy</a>
                 </div>
                 <div>
-                    <span className="footer-title">Newsletter</span>
-                    <div className="form-control w-80">
-                        <label className="label">
-                            <span className="label-text">Enter your email address</span>
-                        </label>
-                        <div className="relative">
-                            <input type="text" placeholder="username@site.com" className="input input-bordered w-full pr-16" />
-                            <button className="btn btn-primary absolute top-0 right-0 rounded-l-none text-[#000000ad]">Subscribe</button>
-                        </div>
-                    </div>
+                <span className="footer-title">Contact Info</span>
+                    <a className="link link-hover">Location: Dhaka, Bangladesh.</a>
+                    <a className="link link-hover">Email: summercampexcellence@gmail.com</a>
+                    <a className="link link-hover">Phone: +880 13235****</a>
                 </div>
+
             </footer>
             <footer className="footer footer-center p-4 bg-base-300 text-base-content">
                 <div>
