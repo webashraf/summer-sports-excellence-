@@ -1,5 +1,4 @@
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
-import styles from'./styles.module.css'
 import { useEffect, useState } from "react";
 import useAxiosSecure from './../../../hooks/useAxiosSecure';
 import useAuth from "../../../hooks/useAuth";
@@ -112,7 +111,7 @@ const CheckOut = ({ price, course }) => {
         <>
             {paymentError && <p className="text-red-600">{paymentError}!!</p>}
             {transectionId && <p className="text-emerald-700 font-bold">Payment successful. Your transectionId: {transectionId}</p>}
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} >
                 <CardElement
                     options={{
                         style: {
@@ -129,7 +128,7 @@ const CheckOut = ({ price, course }) => {
                         },
                     }}
                 />
-                <button className="btn btn-primary" type="submit" disabled={!stripe || !clientSecret || processing}>
+                <button className="btn bg-teal-500 border-teal-500" type="submit" disabled={!stripe || !clientSecret || processing}>
                     Pay
                 </button>
             </form>

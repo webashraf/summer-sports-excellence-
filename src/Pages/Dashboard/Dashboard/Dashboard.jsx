@@ -57,7 +57,7 @@ const Dashboard = () => {
 
 
     return (
-        <div>
+        <div className='relative'>
             {loading ? <Loading></Loading> : <div className="drawer lg:drawer-open">
                 <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
                 <div className="drawer-content px-10 bg-white">
@@ -66,7 +66,7 @@ const Dashboard = () => {
                     <Outlet></Outlet>
 
                 </div>
-                <div className="drawer-side">
+                <div className="drawer-side fixed left-0 top-0">
                     <label htmlFor="my-drawer-2" className="drawer-overlay mt-0"></label>
                     <ul className="menu p-3 w-60 h-full text-white bg-cyan-950 px-4">
 

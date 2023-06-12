@@ -50,7 +50,7 @@ const Navbar = () => {
         <NavLink to={'/classes'} className={({ isActive }) => isActive ? 'text-red-600' : 'text-primary'}>Classes</NavLink>
 
         {user && <NavLink to={'/dashboard'} className={({ isActive }) => isActive ? 'text-red-600' : 'text-primary'}>Dashboard</NavLink>}
-        {!user && <button onClick={handleLogOut} className="btn md:hidden">Logout</button>}
+        {user && <button onClick={handleLogOut} className="btn btn-primary text-[#000000ad] font-bold md:hidden">Logout</button>}
 
     </>
 
@@ -58,7 +58,7 @@ const Navbar = () => {
     return (
         <div className="navbar bg-base-100">
             <div className="navbar-start">
-                <div className="dropdown">
+                <div className="dropdown z-30">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                     </label>
@@ -98,7 +98,7 @@ const Navbar = () => {
                         <div className='w-[60px] h-[60px] rounded-md border-double border-4 overflow-hidden'>
                             <img referrerPolicy='no-referrer' className='w-[100px]' src={user?.photoURL && user?.photoURL} alt="" />
                         </div>
-                        <button onClick={handleLogOut} className="btn hidden md:block">Logout</button>
+                        <button onClick={handleLogOut} className="btn hidden md:block btn-primary text-[#000000ad] font-bold">Logout</button>
                     </>
                 }
             </div>
