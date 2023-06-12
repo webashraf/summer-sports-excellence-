@@ -18,5 +18,4 @@ Used Packages:
 * react-icons for icons.
 ***
 
-- Live site Link: https://a12-summer-camp.web.app/ or https://a12-summer-camp.firebaseapp.com/classes
-
+- Live site Link: https://a12-summer-camp.web.app/ or https://a12-summer-camp.firebaseapp.com/

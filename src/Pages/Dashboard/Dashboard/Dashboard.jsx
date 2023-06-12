@@ -53,7 +53,7 @@ const Dashboard = () => {
         }
     }, [isAdminLoading, isAdmin]);
 
-    console.log(admin?.admin, instructor?.instructor, student?.user);
+    // console.log(admin?.admin, instructor?.instructor, student?.user);
 
 
     return (
