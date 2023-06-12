@@ -8,14 +8,15 @@ Website Features:
 *Use tanStack query.
 *Use Axios and Axios Interceptor.
 *3 Dashboard.
+***
 
 Used Packages:
+* swiperjs for slider.
+* React-awesome-reveal for scroll animation.
+* lottie animation for animation cartoon.
+* react stripe-js for payment system.
+* react-icons for icons.
 ***
-*swiperjs for slider.
-*React-awesome-reveal for scroll animation.
-*lottie animation for animation cartoon.
-*react stripe-js for payment system.
-*react-icons for icons.
 
--Live site Link: https://a12-summer-camp.web.app/ or https://a12-summer-camp.firebaseapp.com/classes
+- Live site Link: https://a12-summer-camp.web.app/ or https://a12-summer-camp.firebaseapp.com/classes
 
