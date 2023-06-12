@@ -1,7 +1,7 @@
 # b712-summer-camp-client-side-webashraf
 Website name: summerCampExcellence.
 
--Website Features:
+Website Features:
 *Firebase login and registration.
 *Stripe Payment system.
 *Use private route.
@@ -9,7 +9,7 @@ Website name: summerCampExcellence.
 *Use Axios and Axios Interceptor.
 *3 Dashboard.
 
--Used Packages:
+Used Packages:
 *swiperjs for slider.
 *React-awesome-reveal for scroll animation.
 *lottie animation for animation cartoon.
