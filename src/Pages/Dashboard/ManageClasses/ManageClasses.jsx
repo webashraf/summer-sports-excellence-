@@ -116,7 +116,6 @@ const ManageClasses = () => {
                                     disabled={classItem.status !== 'pending'}
                                     className="btn bg-red-900 btn-block text-white btn-xs">Deny</button>
                                 <Link to={`/dashboard/feedback/${classItem._id}`}
-                                    // onClick={() => handleFeedbackBtn(classItem._id)} 
                                     className="btn bg-emerald-900 btn-block text-white btn-xs">Feedback</Link>
                             </th>
                         </tr>)}

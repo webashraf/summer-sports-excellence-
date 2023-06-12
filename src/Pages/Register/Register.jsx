@@ -1,15 +1,16 @@
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import SocialLogin from "../../Shared/SocialLogin/SocialLogin";
 import useAuth from "../../hooks/useAuth";
+import { useNavigate } from "react-router-dom/dist";
 
 const Register = () => {
     const { createUserWithEmailAndPass, updateUserProfile, user } = useAuth();
-
     const { register, handleSubmit, formState: { errors }, trigger } = useForm();
     const [confirmPassError, setConfirmPassError] = useState('');
+    const navigate = useNavigate();
     console.log(confirmPassError);
     const onSubmit = data => {
         console.log(data)
@@ -56,6 +57,9 @@ const Register = () => {
     };
 
 
+    useEffect(() => {
+        user && navigate('/')
+    }, [user, navigate])
 
 
 

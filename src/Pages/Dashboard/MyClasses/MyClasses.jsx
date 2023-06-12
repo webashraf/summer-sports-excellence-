@@ -40,9 +40,6 @@ const MyClasses = () => {
                     </thead>
                     <tbody>
 
-
-
-
                         {classes.map((classItem , i) => <tr key={classItem} className="hover">
                             <th>{i + 1}</th>
                             <td>
@@ -58,7 +55,7 @@ const MyClasses = () => {
                                 <h4>{classItem.className}</h4>
                             </td>
                             <td>{classItem.adminFeedback ? classItem.adminFeedback : "--"}</td>
-                            <td>{classItem.status}</td>
+                            <td className={classItem?.status === "approved" && 'text-emerald-700 font-bold' || classItem?.status === "deny" && 'text-red-500 font-bold' || "text-yellow-500 font-bold"}>{classItem?.status}</td>
                             <td className="text-center">{classItem.enrolled ? classItem.enrolled : 0}</td>
                             <th>
                                 <button className="btn bg-emerald-900 btn-block text-white btn-xs">Update</button>
