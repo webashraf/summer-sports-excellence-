@@ -3,6 +3,7 @@ import Main from "../Layout/Main/Main";
 import ClassesPage from "../Pages/ClassesPage/ClassesPage";
 import AddClass from "../Pages/Dashboard/AddClass/AddClass";
 import Dashboard from "../Pages/Dashboard/Dashboard/Dashboard";
+import Feedback from "../Pages/Dashboard/Dashboard/Feedback/Feedback";
 import EnrolledClass from "../Pages/Dashboard/EnrolledClass/EnrolledClass";
 import ManageClasses from "../Pages/Dashboard/ManageClasses/ManageClasses";
 import ManageUser from "../Pages/Dashboard/ManageUser/ManageUser";
@@ -16,8 +17,6 @@ import InstructorsPage from "../Pages/InstructorsPage/InstructorsPage";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
 import PrivateRoute from "./PrivateRoutes/PrivateRoute";
-import Feedback from "../Pages/Dashboard/Dashboard/Feedback/Feedback";
-import AdminPrivateRoute from "./PrivateRoutes/AdminPrivateRoute";
 
 
 const router = createBrowserRouter([

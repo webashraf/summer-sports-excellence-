@@ -2,3 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
+input.input {
+    border-left: 4px solid rgb(239, 68, 68);
+    border-radius: 0;
+    background-color: #f9fdff;
+    font-weight: 600;
+    color: rgb(239, 68, 68);
+    box-shadow: 5px 5px 6px -2px rgb(0 0 0 / 5%);
+}
+
+button.summerCampBtn {
+    background-color: #f9fdff;
+    border-left: 4px solid rgb(239, 68, 68);
+    font-weight: 800;
+    text-transform: uppercase;
+    padding: 14px 0;
+    color: rgb(239, 68, 68);
+    box-shadow: 5px 5px 6px -2px rgb(0 0 0 / 5%);
+}

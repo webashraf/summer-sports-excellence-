@@ -57,14 +57,18 @@ const Login = () => {
                 <div className="hero-content flex-col lg:flex-row-reverse">
                     <div className="card flex-shrink-0 w-full max-w-xl shadow-2xl bg-base-100">
                         <form onSubmit={handleSubmit(onSubmit)} className="card-body w-[555px]">
+                        <div className="border-l-4 border-red-500 pl-3">
+                        <h4 className="uppercase font-bold text-4xl text-red-500 font-serif">login</h4>
+                        </div>
+                        <hr />
 
 
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Email</span>
                                 </label>
-                                <input type="email"  {...register("email", { required: true })} placeholder="email" className="input input-bordered" />
-                                {errors?.email?.type === 'required' && <span className="text-yellow-500 font-bold">Field is required.</span>}
+                                <input type="email"  {...register("email", { required: true })} placeholder="email" className="input" />
+                                {errors?.email?.type === 'required' && <span className="text-yellow-500 font-bold focus-visible:border-none">Field is required.</span>}
                             </div>
 
 
@@ -81,7 +85,7 @@ const Login = () => {
                                     }
                                     }
                                 )}
-                                    placeholder="password" className="input input-bordered" />
+                                    placeholder="password" className="input" />
                                 {errors.password && <p className="text-yellow-500 font-bold">{errors.password?.message}</p>}
                                 {errors?.password?.type === 'required' && <span className="text-yellow-500 font-bold">Field is required.</span>}
                                 {errors?.password?.type === 'minLength' && <span className="text-yellow-500 font-bold">Password less then 6 characters</span>}
@@ -94,7 +98,7 @@ const Login = () => {
 
 
                             <div className="form-control mt-6">
-                                <button type="submit" onClick={handleError} className="btn btn-primary">Login</button>
+                                <button type="submit" onClick={handleError} className="summerCampBtn">Login</button>
                             </div>
                         </form>
                         <div className=" flex justify-center flex-col items-center gap-4 pb-10 w-1/2 mx-auto">

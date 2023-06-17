@@ -70,7 +70,7 @@ const ManageClasses = () => {
     return (
         <div>
 
-            <div className="overflow-x-auto">
+            <div className="overflow-x-auto ">
                 <table className="table">
                     {/* head */}
                     <thead>

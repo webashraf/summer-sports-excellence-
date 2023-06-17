@@ -64,25 +64,29 @@ const Register = () => {
 
 
     return (
-        <div>
-            <div className="hero min-h-screen bg-base-200">
+        <div className="">
+            <div className="hero min-h-screen bg-base-200 pt-36">
                 <div className="hero-content flex-col lg:flex-row-reverse">
                     <div className="card flex-shrink-0 w-full max-w-xl shadow-2xl bg-base-100">
                         <form onSubmit={handleSubmit(onSubmit)} className="card-body w-[555px]">
+                        <div className="border-l-4 border-red-500 pl-3">
+                        <h4 className="uppercase font-bold text-4xl text-red-500 font-serif">register</h4>
+                        </div>
+                        <hr />
 
 
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Name*</span>
                                 </label>
-                                <input type="name"  {...register("name", { required: true })} placeholder="name" className="input input-bordered" />
+                                <input type="name"  {...register("name", { required: true })} placeholder="name" className="input " />
                                 {errors?.name?.type === 'required' && <span className="text-yellow-500 font-bold">Field is required.</span>}
                             </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Email*</span>
                                 </label>
-                                <input type="email"  {...register("email", { required: true })} placeholder="email" className="input input-bordered" />
+                                <input type="email"  {...register("email", { required: true })} placeholder="email" className="input " />
                                 {errors?.email?.type === 'required' && <span className="text-yellow-500 font-bold">Field is required.</span>}
                             </div>
 
@@ -100,7 +104,7 @@ const Register = () => {
                                         }
                                     }
                                 )}
-                                    placeholder="password" className="input input-bordered" />
+                                    placeholder="password" className="input " />
                                 {errors.password && <p className="text-yellow-500 font-bold">{errors.password?.message}</p>}
                                 {errors?.password?.type === 'required' && <span className="text-yellow-500 font-bold">Field is required.</span>}
                                 {errors?.password?.type === 'minLength' && <span className="text-yellow-500 font-bold">Password less then 6 characters</span>}
@@ -124,7 +128,7 @@ const Register = () => {
                                         }
                                     }
                                 )}
-                                    placeholder="confirm password" className="input input-bordered" />
+                                    placeholder="confirm password" className="input " />
                                 {errors.confirmPassword && <p className="text-yellow-500 font-bold">{errors.password?.message}</p>}
                                 {errors?.confirmPassword?.type === 'required' && <span className="text-yellow-500 font-bold">Field is required.</span>}
                                 {errors?.confirmPassword?.type === 'minLength' && <span className="text-yellow-500 font-bold">Password less then 6 characters</span>}
@@ -140,13 +144,13 @@ const Register = () => {
                                 <label className="label">
                                     <span className="label-text">Photo URL*</span>
                                 </label>
-                                <input type="url" {...register("image", { required: true })} placeholder="image" className="input input-bordered" />
+                                <input type="url" {...register("image", { required: true })} placeholder="image" className="input " />
 
                             </div>
 
 
                             <div className="form-control mt-6">
-                                <button type="submit" onClick={handleError} className="btn btn-primary">Register</button>
+                                <button type="submit" onClick={handleError} className="summerCampBtn">Register</button>
                             </div>
                         </form>
                         <div className=" flex justify-center flex-col items-center gap-4 pb-10 w-1/2 mx-auto">

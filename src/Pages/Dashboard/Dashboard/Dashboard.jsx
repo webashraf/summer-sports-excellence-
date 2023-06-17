@@ -1,19 +1,18 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { Bounce } from "react-awesome-reveal";
-import { AiOutlineHome, AiTwotoneHome } from 'react-icons/ai';
+import { } from "react-awesome-reveal";
+import { AiFillHome, AiOutlineChrome, AiTwotoneHome } from 'react-icons/ai';
 import { BsBookHalf } from 'react-icons/bs';
 import { FaAddressCard, FaBookMedical, FaUserEdit } from "react-icons/fa";
 import { MdJoinRight, MdPayments } from 'react-icons/md';
 import { SiGoogleclassroom } from 'react-icons/si';
-import { Link, Outlet } from 'react-router-dom';
+import { NavLink, Outlet } from 'react-router-dom';
+import logo from "../../../../public/logo.png";
 import Loading from '../../../Shared/Loading/Loading';
 import useAdmin from '../../../hooks/useAdmin';
 import useAuth from '../../../hooks/useAuth';
 import useAxiosSecure from '../../../hooks/useAxiosSecure';
-
 const Dashboard = () => {
-    const [axiosSecure] = useAxiosSecure();
     const [isAdmin, isAdminLoading] = useAdmin();
     console.log('isAdmin', isAdmin);
 
@@ -60,7 +59,7 @@ const Dashboard = () => {
         <div className='relative'>
             {!user ? <Loading></Loading> : <div className="drawer lg:drawer-open">
                 <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-                <div className="drawer-content px-10 bg-white ">
+                <div className="drawer-content px-10 bg-[#dbfeff76] overflow-x-auto h-screen">
                     {/* Page content here */}
                     <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">Open drawer</label>
                     <Outlet></Outlet>
@@ -68,64 +67,65 @@ const Dashboard = () => {
                 </div>
                 <div className="drawer-side fixed left-0 top-0">
                     <label htmlFor="my-drawer-2" className="drawer-overlay mt-0"></label>
-                    <ul className="menu p-3 w-60 text-white bg-cyan-950 px-4 sticky left-0 top-0 h-screen">
+                    <ul className="menu p-3 w-60 text-secondary font-bold bg-cyan-700 px-4 sticky left-0 top-0 h-screen">
 
-                        <li className='flex flex-col items-center'>
-                            <h1 className='text-sm font-bold'>SummerSportsExcellence</h1>
+                        <li className='flex flex-col items-center text-white'>
+                        <img className='w-[150px]' src={logo} alt="" />
                             <h4 className='text-2xl '>Dashboard</h4>
 
                         </li>
                         <hr />
 
                         <div className='mt-10 mb px-4'>
-                            <Bounce>
-                                <Link className='text-[15px] underline leading-3 flex items-center gap-2 mb-3' to={'/'}> <AiOutlineHome className='text-xl'></AiOutlineHome> Go to Home</Link>
-                            </Bounce>
+                            <>
+                                <NavLink className={({isActive}) => isActive ? 'text-[15px] underline leading-3 flex items-center gap-2 mb-3 shadow-2xl text-white rounded-2xl p-3 bg-red-500' : 'text-[15px] underline leading-3 flex items-center gap-2 mb-3 rounded-2xl p-3 text-white'} 
+                                 to={'/'}> <AiFillHome></AiFillHome> Go to Home</NavLink>
+                            </>
                         </div>
 
 
                         {isAdmin && <div className='my-10 px-4'>
-                            <Bounce>
-                                <Link className='text-[15px] underline leading-3 flex items-center gap-2 mb-3' to={'/dashboard/admin'}> <AiTwotoneHome className='text-xl'></AiTwotoneHome> Admin Home</Link>
-                            </Bounce>
-                            <Bounce>
-                                <Link className='text-[15px] underline leading-3 flex items-center gap-2 mb-3' to={'/dashboard/manageclasses'}> <SiGoogleclassroom className='text-xl'></SiGoogleclassroom>Manage Class</Link>
-                            </Bounce>
-                            <Bounce>
-                                <Link className='text-[15px] underline leading-3 flex items-center gap-2 mb-3' to={'/dashboard/manageuser'}> <FaUserEdit className='text-xl'></FaUserEdit>Manage User</Link>
-                            </Bounce>
+                            <>
+                                <NavLink  className={({isActive}) => isActive ? 'text-[15px] underline leading-3 flex items-center gap-2 mb-3 shadow-2xl text-white rounded-2xl p-3 bg-red-500' : 'text-[15px] underline leading-3 flex items-center gap-2 mb-3 rounded-2xl p-3 text-white'}  to='/dashboard/admin' > <AiTwotoneHome className='text-xl'></AiTwotoneHome> Admin Home</NavLink>
+                            </>
+                            <>
+                                <NavLink to={'/dashboard/manageclasses'} className={({isActive}) => isActive ? 'text-[15px] underline leading-3 flex items-center gap-2 mb-3 shadow-2xl text-white rounded-2xl p-3 bg-red-500' : 'text-[15px] underline leading-3 flex items-center gap-2 mb-3 rounded-2xl p-3 text-white'}   > <SiGoogleclassroom className='text-xl'></SiGoogleclassroom>Manage Class</NavLink>
+                            </>
+                            <>
+                                <NavLink className={({isActive}) => isActive ? 'text-[15px] underline leading-3 flex items-center gap-2 mb-3 shadow-2xl text-white rounded-2xl p-3 bg-red-500' : 'text-[15px] underline leading-3 flex items-center gap-2 mb-3 rounded-2xl p-3 text-white'}  to={'/dashboard/manageuser'}> <FaUserEdit className='text-xl'></FaUserEdit>Manage User</NavLink>
+                            </>
                         </div>}
 
                         {instructor?.instructor && <div className='my-10 px-4'>
-                            <Bounce>
-                                <Link className='text-[15px] underline leading-3 flex items-center gap-2 mb-3' to={'/dashboard/instructor'}> <AiTwotoneHome className='text-xl'></AiTwotoneHome> Instructor Home</Link>
-                            </Bounce>
+                            <>
+                                <NavLink className={({isActive}) => isActive ? 'text-[15px] underline leading-3 flex items-center gap-2 mb-3 shadow-2xl text-white rounded-2xl p-3 bg-red-500' : 'text-[15px] underline leading-3 flex items-center gap-2 mb-3 rounded-2xl p-3 text-white'}   to={'/dashboard/instructor'}> <AiTwotoneHome className='text-xl'></AiTwotoneHome> Instructor Home</NavLink>
+                            </>
 
-                            <Bounce>
-                                <Link className='text-[15px] underline leading-3 flex items-center gap-2 mb-3' to={'/dashboard/addclass'}> <FaBookMedical className='text-xl'></FaBookMedical>Add a Class</Link>
-                            </Bounce>
+                            <>
+                                <NavLink className={({isActive}) => isActive ? 'text-[15px] underline leading-3 flex items-center gap-2 mb-3 shadow-2xl text-white rounded-2xl p-3 bg-red-500' : 'text-[15px] underline leading-3 flex items-center gap-2 mb-3 rounded-2xl p-3 text-white'}   to={'/dashboard/addclass'}> <FaBookMedical className='text-xl'></FaBookMedical>Add a Class</NavLink>
+                            </>
 
-                            <Bounce>
-                                <Link className='text-[15px] underline leading-3 flex items-center gap-2 mb-3' to={'/dashboard/myclasses'}> <BsBookHalf className='text-xl'></BsBookHalf>My Class</Link>
-                            </Bounce>
+                            <>
+                                <NavLink className={({isActive}) => isActive ? 'text-[15px] underline leading-3 flex items-center gap-2 mb-3 shadow-2xl text-white rounded-2xl p-3 bg-red-500' : 'text-[15px] underline leading-3 flex items-center gap-2 mb-3 rounded-2xl p-3 text-white'}   to={'/dashboard/myclasses'}> <BsBookHalf className='text-xl'></BsBookHalf>My Class</NavLink>
+                            </>
                         </div>}
 
                         {student && <div className='my-10 px-4'>
-                            <Bounce>
-                                <Link className='text-[15px] underline leading-3 flex items-center gap-2 mb-3' to={'/dashboard/student'}> <AiTwotoneHome className='text-xl'></AiTwotoneHome> User Home</Link>
-                            </Bounce>
+                            <>
+                                <NavLink className={({isActive}) => isActive ? 'text-[15px] underline leading-3 flex items-center gap-2 mb-3 shadow-2xl text-white rounded-2xl p-3 bg-red-500' : 'text-[15px] underline leading-3 flex items-center gap-2 mb-3 rounded-2xl p-3 text-white'}   to={'/dashboard/student'}> <AiTwotoneHome className='text-xl'></AiTwotoneHome> User Home</NavLink>
+                            </>
 
-                            <Bounce>
-                                <Link className='text-[15px] underline leading-3 flex items-center gap-2 mb-3' to={'/dashboard/selectedClass'}> <FaAddressCard className='text-xl'></FaAddressCard>My Selected Classes</Link>
-                            </Bounce>
+                            <>
+                                <NavLink className={({isActive}) => isActive ? 'text-[15px] underline leading-3 flex items-center gap-2 mb-3 shadow-2xl text-white rounded-2xl p-3 bg-red-500' : 'text-[15px] underline leading-3 flex items-center gap-2 mb-3 rounded-2xl p-3 text-white'}   to={'/dashboard/selectedClass'}> <FaAddressCard className='text-xl'></FaAddressCard>My Selected Classes</NavLink>
+                            </>
 
-                            <Bounce>
-                                <Link className='text-[15px] underline leading-3 flex items-center gap-2 mb-3' to={'/dashboard/EnrolledClass'}> <MdJoinRight className='text-xl'></MdJoinRight>My Enrolled Classes</Link>
-                            </Bounce>
+                            <>
+                                <NavLink className={({isActive}) => isActive ? 'text-[15px] underline leading-3 flex items-center gap-2 mb-3 shadow-2xl text-white rounded-2xl p-3 bg-red-500' : 'text-[15px] underline leading-3 flex items-center gap-2 mb-3 rounded-2xl p-3 text-white'}   to={'/dashboard/EnrolledClass'}> <MdJoinRight className='text-xl'></MdJoinRight>My Enrolled Classes</NavLink>
+                            </>
 
-                            <Bounce>
-                                <Link className='text-[15px] underline leading-3 flex items-center gap-2 mb-3' to={'/dashboard/paymentHistory'}> <MdPayments className='text-xl'></MdPayments>Payment History</Link>
-                            </Bounce>
+                            <>
+                                <NavLink className={({isActive}) => isActive ? 'text-[15px] underline leading-3 flex items-center gap-2 mb-3 shadow-2xl text-white rounded-2xl p-3 bg-red-500' : 'text-[15px] underline leading-3 flex items-center gap-2 mb-3 rounded-2xl p-3 text-white'}   to={'/dashboard/paymentHistory'}> <MdPayments className='text-xl'></MdPayments>Payment History</NavLink>
+                            </>
                         </div>}
                     </ul>
 
