@@ -22,10 +22,10 @@ Used Packages:
 
 ***
 Admin Email And Password
-Admin email: aliashraftamim2@gmail.com
-Admin password: aliAshraftamim2@
+* Admin email: aliashraftamim2@gmail.com
+* Admin password: aliAshraftamim2@
 
 ***
 Instructor Email and Password
-Instructor email: khairul@gmail.com
-Instructor password: khairul@gmail.coM
+* Instructor email: khairul@gmail.com
+* Instructor password: khairul@gmail.coM
