@@ -19,3 +19,13 @@ Used Packages:
 ***
 
 - Live site Link: https://a12-summer-camp.web.app/ or https://a12-summer-camp.firebaseapp.com/
+
+***
+Admin Email And Password
+Admin email: aliashraftamim2@gmail.com
+Admin password: aliAshraftamim2@
+
+***
+Instructor Email and Password
+Instructor email: khairul@gmail.com
+Instructor password: khairul@gmail.coM
