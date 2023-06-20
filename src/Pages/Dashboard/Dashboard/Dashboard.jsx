@@ -67,18 +67,18 @@ const Dashboard = () => {
                 </div>
                 <div className="drawer-side fixed left-0 top-0">
                     <label htmlFor="my-drawer-2" className="drawer-overlay mt-0"></label>
-                    <ul className="menu p-3 w-60 text-secondary font-bold bg-cyan-700 px-4 sticky left-0 top-0 h-screen">
+                    <ul className="menu p-3 w-60 text-secondary font-bold bg-cyan-600 px-4 sticky left-0 top-0 h-screen">
 
-                        <li className='flex flex-col items-center text-white'>
+                        <li className='flex flex-col items-center text-white bg-[#ffffff87]  shadow-2xl border-b-4 border-white'>
                         <img className='w-[150px]' src={logo} alt="" />
                             <h4 className='text-2xl '>Dashboard</h4>
 
                         </li>
-                        <hr />
+                        
 
                         <div className='mt-10 mb px-4'>
                             <>
-                                <NavLink className={({isActive}) => isActive ? 'text-[15px] underline leading-3 flex items-center gap-2 mb-3 shadow-2xl text-white rounded-2xl p-3 bg-red-500' : 'text-[15px] underline leading-3 flex items-center gap-2 mb-3 rounded-2xl p-3 text-white'} 
+                                <NavLink className={({isActive}) => isActive ? 'text-[15px] underline leading-3 flex items-center gap-2 mb-3 shadow-2xl text-white rounded-2xl p-3 bg-cyan-950' : 'text-[15px] underline leading-3 flex items-center gap-2 mb-3 rounded-2xl p-3 text-white'} 
                                  to={'/'}> <AiFillHome></AiFillHome> Go to Home</NavLink>
                             </>
                         </div>
@@ -86,45 +86,45 @@ const Dashboard = () => {
 
                         {isAdmin && <div className='my-10 px-4'>
                             <>
-                                <NavLink  className={({isActive}) => isActive ? 'text-[15px] underline leading-3 flex items-center gap-2 mb-3 shadow-2xl text-white rounded-2xl p-3 bg-red-500' : 'text-[15px] underline leading-3 flex items-center gap-2 mb-3 rounded-2xl p-3 text-white'}  to='/dashboard/admin' > <AiTwotoneHome className='text-xl'></AiTwotoneHome> Admin Home</NavLink>
+                                <NavLink  className={({isActive}) => isActive ? 'text-[15px] underline leading-3 flex items-center gap-2 mb-3 shadow-2xl text-white rounded-2xl p-3 bg-cyan-950' : 'text-[15px] underline leading-3 flex items-center gap-2 mb-3 rounded-2xl p-3 text-white'}  to='/dashboard/admin' > <AiTwotoneHome className='text-xl'></AiTwotoneHome> Admin Home</NavLink>
                             </>
                             <>
-                                <NavLink to={'/dashboard/manageclasses'} className={({isActive}) => isActive ? 'text-[15px] underline leading-3 flex items-center gap-2 mb-3 shadow-2xl text-white rounded-2xl p-3 bg-red-500' : 'text-[15px] underline leading-3 flex items-center gap-2 mb-3 rounded-2xl p-3 text-white'}   > <SiGoogleclassroom className='text-xl'></SiGoogleclassroom>Manage Class</NavLink>
+                                <NavLink to={'/dashboard/manageclasses'} className={({isActive}) => isActive ? 'text-[15px] underline leading-3 flex items-center gap-2 mb-3 shadow-2xl text-white rounded-2xl p-3 bg-cyan-950' : 'text-[15px] underline leading-3 flex items-center gap-2 mb-3 rounded-2xl p-3 text-white'}   > <SiGoogleclassroom className='text-xl'></SiGoogleclassroom>Manage Class</NavLink>
                             </>
                             <>
-                                <NavLink className={({isActive}) => isActive ? 'text-[15px] underline leading-3 flex items-center gap-2 mb-3 shadow-2xl text-white rounded-2xl p-3 bg-red-500' : 'text-[15px] underline leading-3 flex items-center gap-2 mb-3 rounded-2xl p-3 text-white'}  to={'/dashboard/manageuser'}> <FaUserEdit className='text-xl'></FaUserEdit>Manage User</NavLink>
+                                <NavLink className={({isActive}) => isActive ? 'text-[15px] underline leading-3 flex items-center gap-2 mb-3 shadow-2xl text-white rounded-2xl p-3 bg-cyan-950' : 'text-[15px] underline leading-3 flex items-center gap-2 mb-3 rounded-2xl p-3 text-white'}  to={'/dashboard/manageuser'}> <FaUserEdit className='text-xl'></FaUserEdit>Manage User</NavLink>
                             </>
                         </div>}
 
                         {instructor?.instructor && <div className='my-10 px-4'>
                             <>
-                                <NavLink className={({isActive}) => isActive ? 'text-[15px] underline leading-3 flex items-center gap-2 mb-3 shadow-2xl text-white rounded-2xl p-3 bg-red-500' : 'text-[15px] underline leading-3 flex items-center gap-2 mb-3 rounded-2xl p-3 text-white'}   to={'/dashboard/instructor'}> <AiTwotoneHome className='text-xl'></AiTwotoneHome> Instructor Home</NavLink>
+                                <NavLink className={({isActive}) => isActive ? 'text-[15px] underline leading-3 flex items-center gap-2 mb-3 shadow-2xl text-white rounded-2xl p-3 bg-cyan-950' : 'text-[15px] underline leading-3 flex items-center gap-2 mb-3 rounded-2xl p-3 text-white'}   to={'/dashboard/instructor'}> <AiTwotoneHome className='text-xl'></AiTwotoneHome> Instructor Home</NavLink>
                             </>
 
                             <>
-                                <NavLink className={({isActive}) => isActive ? 'text-[15px] underline leading-3 flex items-center gap-2 mb-3 shadow-2xl text-white rounded-2xl p-3 bg-red-500' : 'text-[15px] underline leading-3 flex items-center gap-2 mb-3 rounded-2xl p-3 text-white'}   to={'/dashboard/addclass'}> <FaBookMedical className='text-xl'></FaBookMedical>Add a Class</NavLink>
+                                <NavLink className={({isActive}) => isActive ? 'text-[15px] underline leading-3 flex items-center gap-2 mb-3 shadow-2xl text-white rounded-2xl p-3 bg-cyan-950' : 'text-[15px] underline leading-3 flex items-center gap-2 mb-3 rounded-2xl p-3 text-white'}   to={'/dashboard/addclass'}> <FaBookMedical className='text-xl'></FaBookMedical>Add a Class</NavLink>
                             </>
 
                             <>
-                                <NavLink className={({isActive}) => isActive ? 'text-[15px] underline leading-3 flex items-center gap-2 mb-3 shadow-2xl text-white rounded-2xl p-3 bg-red-500' : 'text-[15px] underline leading-3 flex items-center gap-2 mb-3 rounded-2xl p-3 text-white'}   to={'/dashboard/myclasses'}> <BsBookHalf className='text-xl'></BsBookHalf>My Class</NavLink>
+                                <NavLink className={({isActive}) => isActive ? 'text-[15px] underline leading-3 flex items-center gap-2 mb-3 shadow-2xl text-white rounded-2xl p-3 bg-cyan-950' : 'text-[15px] underline leading-3 flex items-center gap-2 mb-3 rounded-2xl p-3 text-white'}   to={'/dashboard/myclasses'}> <BsBookHalf className='text-xl'></BsBookHalf>My Class</NavLink>
                             </>
                         </div>}
 
                         {student && <div className='my-10 px-4'>
                             <>
-                                <NavLink className={({isActive}) => isActive ? 'text-[15px] underline leading-3 flex items-center gap-2 mb-3 shadow-2xl text-white rounded-2xl p-3 bg-red-500' : 'text-[15px] underline leading-3 flex items-center gap-2 mb-3 rounded-2xl p-3 text-white'}   to={'/dashboard/student'}> <AiTwotoneHome className='text-xl'></AiTwotoneHome> User Home</NavLink>
+                                <NavLink className={({isActive}) => isActive ? 'text-[15px] underline leading-3 flex items-center gap-2 mb-3 shadow-2xl text-white rounded-2xl p-3 bg-cyan-950' : 'text-[15px] underline leading-3 flex items-center gap-2 mb-3 rounded-2xl p-3 text-white'}   to={'/dashboard/student'}> <AiTwotoneHome className='text-xl'></AiTwotoneHome> User Home</NavLink>
                             </>
 
                             <>
-                                <NavLink className={({isActive}) => isActive ? 'text-[15px] underline leading-3 flex items-center gap-2 mb-3 shadow-2xl text-white rounded-2xl p-3 bg-red-500' : 'text-[15px] underline leading-3 flex items-center gap-2 mb-3 rounded-2xl p-3 text-white'}   to={'/dashboard/selectedClass'}> <FaAddressCard className='text-xl'></FaAddressCard>My Selected Classes</NavLink>
+                                <NavLink className={({isActive}) => isActive ? 'text-[15px] underline leading-3 flex items-center gap-2 mb-3 shadow-2xl text-white rounded-2xl p-3 bg-cyan-950' : 'text-[15px] underline leading-3 flex items-center gap-2 mb-3 rounded-2xl p-3 text-white'}   to={'/dashboard/selectedClass'}> <FaAddressCard className='text-xl'></FaAddressCard>My Selected Classes</NavLink>
                             </>
 
                             <>
-                                <NavLink className={({isActive}) => isActive ? 'text-[15px] underline leading-3 flex items-center gap-2 mb-3 shadow-2xl text-white rounded-2xl p-3 bg-red-500' : 'text-[15px] underline leading-3 flex items-center gap-2 mb-3 rounded-2xl p-3 text-white'}   to={'/dashboard/EnrolledClass'}> <MdJoinRight className='text-xl'></MdJoinRight>My Enrolled Classes</NavLink>
+                                <NavLink className={({isActive}) => isActive ? 'text-[15px] underline leading-3 flex items-center gap-2 mb-3 shadow-2xl text-white rounded-2xl p-3 bg-cyan-950' : 'text-[15px] underline leading-3 flex items-center gap-2 mb-3 rounded-2xl p-3 text-white'}   to={'/dashboard/EnrolledClass'}> <MdJoinRight className='text-xl'></MdJoinRight>My Enrolled Classes</NavLink>
                             </>
 
                             <>
-                                <NavLink className={({isActive}) => isActive ? 'text-[15px] underline leading-3 flex items-center gap-2 mb-3 shadow-2xl text-white rounded-2xl p-3 bg-red-500' : 'text-[15px] underline leading-3 flex items-center gap-2 mb-3 rounded-2xl p-3 text-white'}   to={'/dashboard/paymentHistory'}> <MdPayments className='text-xl'></MdPayments>Payment History</NavLink>
+                                <NavLink className={({isActive}) => isActive ? 'text-[15px] underline leading-3 flex items-center gap-2 mb-3 shadow-2xl text-white rounded-2xl p-3 bg-cyan-950' : 'text-[15px] underline leading-3 flex items-center gap-2 mb-3 rounded-2xl p-3 text-white'}   to={'/dashboard/paymentHistory'}> <MdPayments className='text-xl'></MdPayments>Payment History</NavLink>
                             </>
                         </div>}
                     </ul>
