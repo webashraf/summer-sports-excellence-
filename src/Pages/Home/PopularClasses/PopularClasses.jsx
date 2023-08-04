@@ -11,7 +11,7 @@ const PopularClasses = () => {
             .then(res => setClasses(res.data))
     }, [])
 
-    console.log(classes);
+    // console.log(classes);
 
     return (
         <div>
@@ -19,9 +19,8 @@ const PopularClasses = () => {
             <div className='grid grid-cols-1 md:grid-cols-3 w-[95%] mx-auto gap-10 md:gap-6'>
                 {
                     classes.slice(0, 6).map(classItem =>
-
                         <Zoom key={classItem._id}>
-                            <div className="card glass shadow-2xl md:shadow-md border-none shadow-indigo-200">
+                            <div className="card glass shadow-2xl md:shadow-lg  border-4 border-red-500 shadow-indigo-200">
                                 <figure><img className='h-[200px] w-full object-cover' src={classItem.photoUrl} alt="car!" /></figure>
                                 <div className="card-body">
                                     <h2 className="card-title text-2xl text-secondary">{classItem.className}</h2>

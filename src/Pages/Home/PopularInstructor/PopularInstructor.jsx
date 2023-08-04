@@ -9,7 +9,7 @@ const PopularInstructor = () => {
     axios.get(`https://a12-server-eight.vercel.app/instructors`)
       .then(res => setInstructors(res.data))
   }, [])
-  console.log(instructors);
+  // console.log(instructors);
 
 
   return (
@@ -21,14 +21,14 @@ const PopularInstructor = () => {
           {
             instructors?.slice(0, 6).map(instructor => 
             <Slide key={instructor._id}>
-              <div key={instructor._id} className="card md:w-96 bg-[#ffffff] shadow-2xl">
+              <div key={instructor._id} className="card md:w-96 bg-[#ffffff1c] shadow-2xl">
                 <figure className="px-10 pt-10 w-[200px] h-[200px] rounded-full overflow-hidden mx-auto ">
                   <img src={instructor?.photoUrl} alt="Shoes" className="rounded-xl" />
                 </figure>
                 <div className="card-body items-center text-center p-5">
   
   
-                  <div className='flex flex-col justify-center items-center space-y-1'>
+                  <div className='flex flex-col justify-center items-center space-y-1 text-[#ffffffaf]'>
                     <h2 className="card-title text-xl font-light"><span className="font-bold">Name : </span>{instructor?.name}</h2>
                     <p className="text-md font-light"><span className="font-bold">Email : </span>{instructor?.email}</p>
                     <p className="text-md"><span className="font-bold">Total Class : </span>{instructor?.totalClass ? instructor?.totalClass : 0}</p>

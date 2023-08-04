@@ -4,6 +4,7 @@ import ClassesPage from "../Pages/ClassesPage/ClassesPage";
 import AddClass from "../Pages/Dashboard/AddClass/AddClass";
 import Dashboard from "../Pages/Dashboard/Dashboard/Dashboard";
 import Feedback from "../Pages/Dashboard/Dashboard/Feedback/Feedback";
+import DashboardHome from "../Pages/Dashboard/DashboardHome/DashboardHome";
 import EnrolledClass from "../Pages/Dashboard/EnrolledClass/EnrolledClass";
 import ManageClasses from "../Pages/Dashboard/ManageClasses/ManageClasses";
 import ManageUser from "../Pages/Dashboard/ManageUser/ManageUser";
@@ -56,7 +57,8 @@ const router = createBrowserRouter([
         children: [
             {
                 path: '/dashboard',
-                element: <h1 className="text-7xl text-center mt-20">Dashboard</h1>
+                element: <DashboardHome></DashboardHome>
+                // element: <h1 className="text-7xl text-center mt-20">Dashboard</h1>
             },
             {
                 path: '/dashboard/admin',

@@ -71,3 +71,7 @@
   .swiper-slide img {
     height: 600px;
 }  
+
+.swiper-button-next, .swiper-button-prev, .autoplay-progress {
+  color: white;
+}

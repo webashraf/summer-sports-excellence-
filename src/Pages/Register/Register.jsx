@@ -65,10 +65,10 @@ const Register = () => {
 
     return (
         <div className="">
-            <div className="hero min-h-screen bg-base-200 pt-36">
+            <div className="hero min-h-screen bg-base-200 py-8 md:pt-36">
                 <div className="hero-content flex-col lg:flex-row-reverse">
                     <div className="card flex-shrink-0 w-full max-w-xl shadow-2xl bg-base-100">
-                        <form onSubmit={handleSubmit(onSubmit)} className="card-body w-[555px]">
+                        <form onSubmit={handleSubmit(onSubmit)} className="card-body md:w-[555px]">
                         <div className="border-l-4 border-red-500 pl-3">
                         <h4 className="uppercase font-bold text-4xl text-red-500 font-serif">register</h4>
                         </div>
@@ -153,7 +153,7 @@ const Register = () => {
                                 <button type="submit" onClick={handleError} className="summerCampBtn">Register</button>
                             </div>
                         </form>
-                        <div className=" flex justify-center flex-col items-center gap-4 pb-10 w-1/2 mx-auto">
+                        <div className=" flex justify-center flex-col items-center gap-4 pb-10 md:w-1/2 mx-auto">
                             <p>All ready have an account <Link to={'/login'} className="font-bold text-red-500">login now.
                             </Link></p>
                             <SocialLogin></SocialLogin>

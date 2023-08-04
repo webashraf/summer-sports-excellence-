@@ -20,7 +20,7 @@ const Slider = () => {
         progressContent.current.textContent = `${Math.ceil(time / 1000)}s`;
     };
     return (
-        <div className='md:pt-[75px]'>
+        <div className='md:pt-[65px]'>
             <Swiper
                 spaceBetween={30}
                 centeredSlides={true}
@@ -68,7 +68,7 @@ const Slider = () => {
                 </SwiperSlide>
                 <div className="autoplay-progress" slot="container-end">
                     <svg viewBox="0 0 48 48" ref={progressCircle}>
-                        <circle cx="24" cy="24" r="20"></circle>
+                        <circle className='text-white' cx="24" cy="24" r="20"></circle>
                     </svg>
                     <span ref={progressContent}></span>
                 </div>

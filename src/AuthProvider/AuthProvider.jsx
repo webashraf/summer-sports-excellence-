@@ -42,11 +42,11 @@ const AuthProvider = ({ children }) => {
 
         const unSubscribe = onAuthStateChanged(auth, currentlyLoginUser => {
             setUser(currentlyLoginUser);
-            console.log(currentlyLoginUser);
+            // console.log(currentlyLoginUser);
             if (currentlyLoginUser) {
                 axios.post(`https://a12-server-eight.vercel.app/jwt`, {email: currentlyLoginUser.email})
                 .then(result => {
-                    console.log(result.data);
+                    // console.log(result.data);
                     localStorage.setItem('accessToken', result.data.token)
                     setLoading(false);
                 })

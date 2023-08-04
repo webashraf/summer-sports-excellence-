@@ -1,3 +1,4 @@
+import OurAwards from "../OurAwards/OurAwards";
 import PopularClasses from "../PopularClasses/PopularClasses";
 import PopularInstructor from "../PopularInstructor/PopularInstructor";
 import Slider from "../Slider/Slider";
@@ -11,6 +12,7 @@ const Home = () => {
             <PopularClasses></PopularClasses>
             <PopularInstructor></PopularInstructor>
             <WhySports></WhySports>
+            <OurAwards></OurAwards>
         </div>
     );
 };

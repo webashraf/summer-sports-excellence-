@@ -5,7 +5,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import SocialLogin from "../../Shared/SocialLogin/SocialLogin";
 import useAuth from "../../hooks/useAuth";
 const Login = () => {
-    const { loginUserWithEmailPass, signInWithGoogle, user} = useAuth();
+    const { loginUserWithEmailPass, signInWithGoogle, user } = useAuth();
     const { register, handleSubmit, formState: { errors }, trigger } = useForm();
     const location = useLocation();
     const from = location?.state?.from?.pathname || "/";
@@ -29,8 +29,8 @@ const Login = () => {
                     photoUrl: result.user.photoURL
                 }
                 console.log(newUser);
-                axios.post(`https://a12-server-eight.vercel.app/users`, newUser )
-                .then(res => console.log(res.data))
+                axios.post(`https://a12-server-eight.vercel.app/users`, newUser)
+                    .then(res => console.log(res.data))
             })
             .catch(errors => console.log(errors))
 
@@ -49,18 +49,18 @@ const Login = () => {
 
     useEffect(() => {
         user && navigate(from);
-      }, [from, navigate, user])
+    }, [from, navigate, user])
 
     return (
         <div>
             <div className="hero min-h-screen bg-base-200">
                 <div className="hero-content flex-col lg:flex-row-reverse">
                     <div className="card flex-shrink-0 w-full max-w-xl shadow-2xl bg-base-100">
-                        <form onSubmit={handleSubmit(onSubmit)} className="card-body w-[555px]">
-                        <div className="border-l-4 border-red-500 pl-3">
-                        <h4 className="uppercase font-bold text-4xl text-red-500 font-serif">login</h4>
-                        </div>
-                        <hr />
+                        <form onSubmit={handleSubmit(onSubmit)} className="card-body md:w-[555px]">
+                            <div className="border-l-4 border-red-500 pl-3">
+                                <h4 className="uppercase font-bold text-4xl text-red-500 font-serif">login</h4>
+                            </div>
+                            <hr />
 
 
                             <div className="form-control">
@@ -78,11 +78,11 @@ const Login = () => {
                                 </label>
                                 <input type="password" {...register("password",
                                     {
-                                    required: true, minLength: 6, pattern: {
-                                        value: /^(?=.*[A-Z])(?=.*[!@#$&%*]).*$/,
-                                        message: 'Password must contain at least one capital letter and one special character (!@#$&*)',
+                                        required: true, minLength: 6, pattern: {
+                                            value: /^(?=.*[A-Z])(?=.*[!@#$&%*]).*$/,
+                                            message: 'Password must contain at least one capital letter and one special character (!@#$&*)',
 
-                                    }
+                                        }
                                     }
                                 )}
                                     placeholder="password" className="input" />
@@ -101,7 +101,7 @@ const Login = () => {
                                 <button type="submit" onClick={handleError} className="summerCampBtn">Login</button>
                             </div>
                         </form>
-                        <div className=" flex justify-center flex-col items-center gap-4 pb-10 w-1/2 mx-auto">
+                        <div className=" flex justify-center flex-col items-center gap-4 pb-10 md:w-1/2 mx-auto">
                             <p>New here please <Link to={'/register'} className="font-bold text-red-500">Register.
                             </Link></p>
 

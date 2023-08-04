@@ -10,7 +10,7 @@ const ClassesPage = () => {
     const { user } = useAuth();
     const navigate = useNavigate();
     const [student, setStudent] = useState(null);
-    console.log('student', user?.email);
+    // console.log('student', user?.email);
 
 
     const { data: classes = [] } = useQuery({
@@ -20,7 +20,7 @@ const ClassesPage = () => {
             return res.data;
         }
     })
-    console.log(classes);
+    // console.log(classes);
 
 
 
@@ -29,7 +29,7 @@ const ClassesPage = () => {
         axios.get(`https://a12-server-eight.vercel.app/isUser/${user?.email}`)
             .then(res => setStudent(res.data));
     }, [user]);
-    console.log(student);
+    // console.log(student);
 
 
 
@@ -88,7 +88,7 @@ const ClassesPage = () => {
         <div className="md:pt-[75px]">
             
             <ImageHeading hText={"Our All Classes"}></ImageHeading>
-            <div className="grid grid-cols-3 gap-6 px-10 py-20">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:px-10 py-20">
                 {
                     classes.map(classItem => <div key={classItem._id} className={classItem.seats < 1 ? 'card w-[370] mx-auto bg-red-400 shadow-xl text-slate-200' : "card w-[380px] mx-auto bg-base-100 shadow-xl"}>
                         <figure><img src={classItem.photoUrl} className="h-[180px] object-cover w-full" alt="Sports Image" /></figure>

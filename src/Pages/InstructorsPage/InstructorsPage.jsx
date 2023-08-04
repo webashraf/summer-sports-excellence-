@@ -12,10 +12,10 @@ const InstructorsPage = () => {
     return (
         <div className="md:pt-[75px]">
             <ImageHeading hText={'Our Instructors'}></ImageHeading>
-            <div className="grid grid-cols-2 gap-6 py-20 px-10">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 py-20 md:px-10">
                 {
-                    instructors?.map(instructor => <div key={instructor?._id} className="card card-side glass shadow-2xl">
-                        <figure><img className="h-[400px] w-[250px]" src={instructor?.photoUrl} alt="Movie" /></figure>
+                    instructors?.map(instructor => <div key={instructor?._id} className="card md:card-side glass shadow-2xl">
+                        <figure><img className="h-[200px] md:h-[400px] w-full md:w-[250px] object-cover object-center" src={instructor?.photoUrl} alt="Movie" /></figure>
                         <div className="card-body">
 
                             <div className="space-y-3">
