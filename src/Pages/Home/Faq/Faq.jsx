@@ -122,7 +122,7 @@ const Faq = () => {
                 </div>
 
                 <div className='py-3 flex justify-center flex-col'>
-                    <input value={"My next question is"} style={{outline: 'none !important', borderRadius: "30px !important"}} type="text" placeholder="Type here" className="faqInput input input-bordered input-success w-full max-w-xs mx-auto" />
+                    <input value={"My next question is"} style={{outline: 'none !important', borderRadius: "30px !important"}} type="text" placeholder="Type here" className="faqInput  input input-bordered input-success w-full max-w-xs mx-auto" />
                     <div>
                         <div className="flex justify-center gap-1 my-1 w-full mt-5">
                             <kbd className="kbd">q</kbd>

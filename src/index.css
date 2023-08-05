@@ -23,8 +23,9 @@ button.summerCampBtn {
 .faqInput{
     outline: none !important;
     border-radius: 20px !important;
-    border-left: none !important ;
+    border: none !important ;
     font-weight: 600 !important;
     height: 40px;
     color: black !important;
+    background-color: #f9fdff2c !important;
 }
