@@ -20,7 +20,7 @@ const PopularInstructor = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 bg-[#10101099] p-10">
           {
             instructors?.slice(0, 6).map(instructor => 
-            <Slide key={instructor._id}>
+            <Slide triggerOnce key={instructor._id}>
               <div key={instructor._id} className="card md:w-96 bg-[#ffffff1c] shadow-2xl">
                 <figure className="px-10 pt-10 w-[200px] h-[200px] rounded-full overflow-hidden mx-auto ">
                   <img src={instructor?.photoUrl} alt="Shoes" className="rounded-xl" />

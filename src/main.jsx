@@ -7,7 +7,9 @@ import { RouterProvider } from 'react-router-dom';
 import AuthProvider from './AuthProvider/AuthProvider';
 import router from './Routes/Routes';
 import './index.css';
-// import 'sweetalert2/src/sweetalert2.scss'
+import 'aos/dist/aos.css'; // Import the AOS CSS
+
+
 
 const queryClient = new QueryClient()
 

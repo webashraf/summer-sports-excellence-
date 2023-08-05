@@ -37,21 +37,21 @@ const CountInfo = () => {
         <div className=' my-10 bg-[url(https://images.pexels.com/photos/8941650/pexels-photo-8941650.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)] bg-center bg-fied bg-no-repeat bg-cover'>
             <div className='w-full h-full flex justify-center bg-[#1010102c] py-10 gap-1'>
 
-                <div className="text-center bg-[#ffffff49] text-[#fff] p-5 border-2 border-[#1010105d] w-[300px] h-[150px]">
+                <div className="text-center bg-[#ffffff13] text-[#fff] p-5 border-2 border-[#ffffff2d] w-[300px] h-[150px]">
                     <div className="text-5xl font-bold">
                         <CountUp start={0} end={instructors?.length} duration={3} />+
                     </div>
                     <p className="text-xl">Total Instructor</p>
                 </div>
 
-                <div className="text-center bg-[#ffffff49] text-[#fff] p-5 border-2 border-[#1010105d] g w-[300px] h-[150px]">
+                <div className="text-center bg-[#ffffff13] text-[#fff] p-5 border-2 border-[#ffffff2d] g w-[300px] h-[150px]">
                     <div className="text-5xl font-bold">
                         <CountUp start={0} end={classes?.length} duration={100} />+
                     </div>
                     <p className="text-xl">Total Class</p>
                 </div>
 
-                <div className="text-center bg-[#ffffff49] text-[#fff] p-5 border-2 border-[#1010105d] g w-[300px] h-[150px]">
+                <div className="text-center bg-[#ffffff13] text-[#fff] p-5 border-2 border-[#ffffff2d] g w-[300px] h-[150px]">
                     <div className="text-5xl font-bold">
                         <CountUp start={0} end={student?.length} duration={1} />+
                     </div>

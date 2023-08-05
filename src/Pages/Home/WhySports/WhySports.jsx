@@ -48,13 +48,13 @@ const WhySports = () => {
             </div>
             <div>
 
-                <JackInTheBox>
+                <div>
                     <Lottie
                         options={defaultOptions}
                         height={350}
                         width={350}
                     />
-                </JackInTheBox>
+                </div>
 
             </div>
         </div>
