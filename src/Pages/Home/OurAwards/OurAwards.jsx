@@ -38,9 +38,7 @@ const OurAwards = () => {
                         <Swiper
                             slidesPerView={4}
                             spaceBetween={10}
-                            // pagination={{
-                            //     clickable: true,
-                            // }}
+
                             navigation={true}
                             // modules={[Pagination, Navigation]}
                             breakpoints={{
@@ -59,6 +57,10 @@ const OurAwards = () => {
                             }}
                             modules={[Pagination, Navigation]}
                             className="mySwiper"
+                            
+
+
+
                         >
                             <div className="">
                                 {
@@ -72,89 +74,8 @@ const OurAwards = () => {
                         </Swiper>
                     </div>
                 </div>
-                <div className="join join-vertical w-full bg-white">
-                    <div className="collapse collapse-arrow join-item border border-base-300">
-                        <input type="radio" name="my-accordion-4" checked="checked" />
-                        <div className="collapse-title text-xl font-medium">
-                            Click to open this one and close others
-                        </div>
-                        <div className="collapse-content">
-                            <p>hello</p>
-                        </div>
-                    </div>
-                    <div className="collapse collapse-arrow join-item border border-base-300">
-                        <input type="radio" name="my-accordion-4" />
-                        <div className="collapse-title text-xl font-medium">
-                            Click to open this one and close others
-                        </div>
-                        <div className="collapse-content">
-                            <p>hello</p>
-                        </div>
-                    </div>
-                    <div className="collapse collapse-arrow join-item border border-base-300">
-                        <input type="radio" name="my-accordion-4" />
-                        <div className="collapse-title text-xl font-medium">
-                            Click to open this one and close others
-                        </div>
-                        <div className="collapse-content">
-                            <p>hello</p>
-                        </div>
-                    </div>
-                </div>
-                <div className="chat chat-start">
-                    <div className="chat-bubble chat-bubble-primary">What kind of nonsense is this</div>
-                </div>
-                <div className="chat chat-start">
-                    <div className="chat-bubble chat-bubble-secondary">Put me on the Council and not make me a Master!??</div>
-                </div>
-                <div className="chat chat-start">
-                    <div className="chat-bubble chat-bubble-accent">That's never been done in the history of the Jedi. It's insulting!</div>
-                </div>
-                <div className="chat chat-end">
-                    <div className="chat-bubble chat-bubble-info">Calm down, Anakin.</div>
-                </div>
-                <div className="chat chat-end">
-                    <div className="chat-bubble chat-bubble-success">You have been given a great honor.</div>
-                </div>
-                <div className="chat chat-end">
-                    <div className="chat-bubble chat-bubble-warning">To be on the Council at your age.</div>
-                </div>
-                <div className="chat chat-end">
-                    <div className="chat-bubble chat-bubble-error">It's never happened before.</div>
-                </div>
-                <div className="flex justify-center gap-1 my-1 w-full">
-                    <kbd className="kbd">q</kbd>
-                    <kbd className="kbd">w</kbd>
-                    <kbd className="kbd">e</kbd>
-                    <kbd className="kbd">r</kbd>
-                    <kbd className="kbd">t</kbd>
-                    <kbd className="kbd">y</kbd>
-                    <kbd className="kbd">u</kbd>
-                    <kbd className="kbd">i</kbd>
-                    <kbd className="kbd">o</kbd>
-                    <kbd className="kbd">p</kbd>
-                </div>
-                <div className="flex justify-center gap-1 my-1 w-full">
-                    <kbd className="kbd">a</kbd>
-                    <kbd className="kbd">s</kbd>
-                    <kbd className="kbd">d</kbd>
-                    <kbd className="kbd">f</kbd>
-                    <kbd className="kbd">g</kbd>
-                    <kbd className="kbd">h</kbd>
-                    <kbd className="kbd">j</kbd>
-                    <kbd className="kbd">k</kbd>
-                    <kbd className="kbd">l</kbd>
-                </div>
-                <div className="flex justify-center gap-1 my-1 w-full">
-                    <kbd className="kbd">z</kbd>
-                    <kbd className="kbd">x</kbd>
-                    <kbd className="kbd">c</kbd>
-                    <kbd className="kbd">v</kbd>
-                    <kbd className="kbd">b</kbd>
-                    <kbd className="kbd">n</kbd>
-                    <kbd className="kbd">m</kbd>
-                    <kbd className="kbd">/</kbd>
-                </div>
+
+
             </div>
 
 

@@ -1,3 +1,4 @@
+import Faq from "../FAQ/Faq";
 import OurAwards from "../OurAwards/OurAwards";
 import PopularClasses from "../PopularClasses/PopularClasses";
 import PopularInstructor from "../PopularInstructor/PopularInstructor";
@@ -13,6 +14,7 @@ const Home = () => {
             <PopularInstructor></PopularInstructor>
             <WhySports></WhySports>
             <OurAwards></OurAwards>
+            <Faq></Faq>
         </div>
     );
 };
