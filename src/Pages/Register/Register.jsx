@@ -34,7 +34,8 @@ const Register = () => {
                 const newUser = {
                     name: data.name,
                     email: data.email,
-                    photoUrl: data.image
+                    photoUrl: data.image,
+                    role: "student"
                 }
                 console.log(newUser);
                 axios.post(`https://a12-server-eight.vercel.app/users`, newUser)

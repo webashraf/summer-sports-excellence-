@@ -62,7 +62,7 @@ const OurAwards = () => {
 
 
                         >
-                            <div className="">
+                            <div className="grid grid-cols-2">
                                 {
                                     trophys.map((trophy, i) => <SwiperSlide className="border-4 border-[#ffffff0c] bg-[#0e3c3fb2] h-[200px]" key={i}>
                                         <div className="">
