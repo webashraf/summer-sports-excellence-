@@ -12,7 +12,7 @@ const DashboardHome = () => {
     const [instructor, setInstructor] = useState(null);
     const [student, setStudent] = useState(null);
 
-    console.log(admin, instructor?.instructor, student?.student);
+    console.log("admin", isAdmin?.admin,'instructor', instructor?.instructor, student?.student);
 
     useEffect(() => {
         axios.get(`https://a12-server-eight.vercel.app/isInstructor/${user?.email}`)
@@ -43,7 +43,7 @@ const DashboardHome = () => {
     }, [isAdminLoading, isAdmin]);
     return (
         <div className="text-7xl font-serif text-center pt-10">
-            {admin?.admin && <h1>Admin Dashboard</h1>}
+            {isAdmin?.admin && <h1>Admin Dashboard</h1>}
             {instructor?.instructor && <h1>Instructor Dashboard</h1>}
             {student?.student && <h1>Student Dashboard</h1>}
         </div>

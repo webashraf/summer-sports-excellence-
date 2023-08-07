@@ -102,8 +102,8 @@ const ManageClasses = () => {
                                 <h4>{classItem.className}</h4>
                             </td>
                             <td>
-                                <h4 className="font-bold">Name: {classItem.instructorName}</h4>
-                                <h4>Email:{classItem.instructorEmail}</h4>
+                                <h4 className="font-bold">Name: {classItem.instructorName.slice(0, 25)}</h4>
+                                <h4>{classItem.instructorEmail.slice(0, 30)}</h4>
                             </td>
                             <td className="text-center">{classItem.seats}</td>
                             <td className="text-center">${classItem.price}</td>
