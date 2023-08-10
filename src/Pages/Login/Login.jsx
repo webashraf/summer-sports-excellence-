@@ -52,8 +52,11 @@ const Login = () => {
     }, [from, navigate, user])
 
     return (
-        <div>
-            <div className="hero min-h-screen bg-base-200">
+        <div className="py-20 bg-base-200">
+            <div className="w-[800px] mx-auto text-center">
+            <h1 className=" text-3xl font-serif text-red-500 uppercase">Just Click Login <br></br> to see admin dashboard more feature</h1>
+            </div>
+            <div className="hero min-h-screen">
                 <div className="hero-content flex-col lg:flex-row-reverse">
                     <div className="card flex-shrink-0 w-full max-w-xl shadow-2xl bg-base-100">
                         <form onSubmit={handleSubmit(onSubmit)} className="card-body md:w-[555px]">
@@ -67,7 +70,7 @@ const Login = () => {
                                 <label className="label">
                                     <span className="label-text">Email</span>
                                 </label>
-                                <input type="email"  {...register("email", { required: true })} placeholder="email" className="input" />
+                                <input type="email" defaultValue={"aliashraftamim2@gmail.com"}  {...register("email", { required: true })} placeholder="email" className="input" />
                                 {errors?.email?.type === 'required' && <span className="text-yellow-500 font-bold focus-visible:border-none">Field is required.</span>}
                             </div>
 
@@ -76,7 +79,7 @@ const Login = () => {
                                 <label className="label">
                                     <span className="label-text">Password</span>
                                 </label>
-                                <input type="password" {...register("password",
+                                <input type="password" defaultValue={"aliAshraftamim2@"} {...register("password",
                                     {
                                         required: true, minLength: 6, pattern: {
                                             value: /^(?=.*[A-Z])(?=.*[!@#$&%*]).*$/,

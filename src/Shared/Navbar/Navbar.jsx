@@ -49,7 +49,7 @@ const Navbar = () => {
 
         <NavLink to={'/classes'} className={({ isActive }) => isActive ? 'text-red-600' : 'text-primary'}>Classes</NavLink>
 
-        {user && <NavLink to={'/dashboard'} className={({ isActive }) => isActive ? 'text-red-600' : 'text-primary'}>Dashboard</NavLink>}
+        <NavLink to={'/dashboard'} className={({ isActive }) => isActive ? 'text-red-600' : 'text-primary'}>Dashboard</NavLink>
         {user && <button onClick={handleLogOut} className="btn btn-primary text-[#000000ad] font-bold md:hidden">Logout</button>}
 
     </>

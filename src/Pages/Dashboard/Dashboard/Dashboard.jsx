@@ -95,9 +95,9 @@ const Dashboard = () => {
                         </div>
 
 
-                        {isAdmin && <div className='my-10 px-4'>
+                        {isAdmin && <div className='my- px-4'>
                             <>
-                                <NavLink className={({ isActive }) => isActive ? 'text-[15px] underline leading-3 flex items-center gap-2 mb-3 shadow-2xl text-white rounded-2xl p-3 bg-cyan-950' : 'text-[15px] underline leading-3 flex items-center gap-2 mb-3 rounded-2xl p-3 text-white'} to='/dashboard/admin' > <AiTwotoneHome className='text-xl'></AiTwotoneHome> Admin Home</NavLink>
+                                {/* <NavLink className={({ isActive }) => isActive ? 'text-[15px] underline leading-3 flex items-center gap-2 mb-3 shadow-2xl text-white rounded-2xl p-3 bg-cyan-950' : 'text-[15px] underline leading-3 flex items-center gap-2 mb-3 rounded-2xl p-3 text-white'} to='/dashboard/admin' > <AiTwotoneHome className='text-xl'></AiTwotoneHome> Admin Home</NavLink> */}
                             </>
                             <>
                                 <NavLink to={'/dashboard/manageclasses'} className={({ isActive }) => isActive ? 'text-[15px] underline leading-3 flex items-center gap-2 mb-3 shadow-2xl text-white rounded-2xl p-3 bg-cyan-950' : 'text-[15px] underline leading-3 flex items-center gap-2 mb-3 rounded-2xl p-3 text-white'}   > <SiGoogleclassroom className='text-xl'></SiGoogleclassroom>Manage Class</NavLink>
@@ -109,7 +109,7 @@ const Dashboard = () => {
 
                         {instructor && <div className='my-10 px-4'>
                             <>
-                                <NavLink className={({ isActive }) => isActive ? 'text-[15px] underline leading-3 flex items-center gap-2 mb-3 shadow-2xl text-white rounded-2xl p-3 bg-cyan-950' : 'text-[15px] underline leading-3 flex items-center gap-2 mb-3 rounded-2xl p-3 text-white'} to={'/dashboard/instructor'}> <AiTwotoneHome className='text-xl'></AiTwotoneHome> Instructor Home</NavLink>
+                                {/* <NavLink className={({ isActive }) => isActive ? 'text-[15px] underline leading-3 flex items-center gap-2 mb-3 shadow-2xl text-white rounded-2xl p-3 bg-cyan-950' : 'text-[15px] underline leading-3 flex items-center gap-2 mb-3 rounded-2xl p-3 text-white'} to={'/dashboard/instructor'}> <AiTwotoneHome className='text-xl'></AiTwotoneHome> Instructor Home</NavLink> */}
                             </>
 
                             <>
@@ -123,7 +123,7 @@ const Dashboard = () => {
 
                         {student?.student && <div className='my-10 px-4'>
                             <>
-                                <NavLink className={({ isActive }) => isActive ? 'text-[15px] underline leading-3 flex items-center gap-2 mb-3 shadow-2xl text-white rounded-2xl p-3 bg-cyan-950' : 'text-[15px] underline leading-3 flex items-center gap-2 mb-3 rounded-2xl p-3 text-white'} to={'/dashboard/student'}> <AiTwotoneHome className='text-xl'></AiTwotoneHome> User Home</NavLink>
+                                {/* <NavLink className={({ isActive }) => isActive ? 'text-[15px] underline leading-3 flex items-center gap-2 mb-3 shadow-2xl text-white rounded-2xl p-3 bg-cyan-950' : 'text-[15px] underline leading-3 flex items-center gap-2 mb-3 rounded-2xl p-3 text-white'} to={'/dashboard/student'}> <AiTwotoneHome className='text-xl'></AiTwotoneHome> User Home</NavLink> */}
                             </>
 
                             <>
