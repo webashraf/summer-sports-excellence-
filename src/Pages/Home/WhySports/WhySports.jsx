@@ -14,7 +14,7 @@ const WhySports = () => {
     };
 
     return (
-        <div className='flex items-center flex-col-reverse md:flex-row justify-between my-36 md:px-10'>
+        <div className='flex items-center flex-col-reverse md:flex-row justify-between mt-36 md:px-10'>
 
             <div className="md:w-[60%] py-8">
                 <div className=" mx-auto px-5">

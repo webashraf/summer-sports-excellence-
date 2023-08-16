@@ -1,9 +1,10 @@
-import { HiLightBulb } from 'react-icons/hi';
-import { Link, NavLink } from 'react-router-dom';
-import useAuth from '../../hooks/useAuth';
-import { FaCloudMoon } from 'react-icons/fa';
 import { useEffect, useState } from 'react';
-import logo from "../../../public/logo.png"
+import { FaCloudMoon } from 'react-icons/fa';
+import { HiLightBulb } from 'react-icons/hi';
+import { IoMdFlashlight, IoMdMoon } from 'react-icons/io';
+import { Link, NavLink } from 'react-router-dom';
+import logo from "../../../public/logo.png";
+import useAuth from '../../hooks/useAuth';
 
 const Navbar = () => {
     const { signOutUser, user } = useAuth();
@@ -43,66 +44,82 @@ const Navbar = () => {
 
 
     const menu = <>
-        <NavLink to={'/'} className={({ isActive }) => isActive ? 'text-red-600 -tracking-tight' : 'text-primary'}>Home</NavLink>
+        <NavLink to={'/'} className={({ isActive }) => isActive ? 'py-[2px] px-2 rounded-lg text-white bg-[#9a1111] -tracking-tight' : 'text-white'}>Home</NavLink>
 
-        <NavLink to={'/instructors'} className={({ isActive }) => isActive ? 'text-red-600 ' : ' text-primary'}>Instructors</NavLink>
+        <NavLink to={'/instructors'} className={({ isActive }) => isActive ? 'py-[2px] px-2 rounded-lg text-white bg-[#9a1111] ' : ' text-white'}>Instructors</NavLink>
 
-        <NavLink to={'/classes'} className={({ isActive }) => isActive ? 'text-red-600' : 'text-primary'}>Classes</NavLink>
+        <NavLink to={'/classes'} className={({ isActive }) => isActive ? 'py-[2px] px-2 rounded-lg text-white bg-[#9a1111]' : 'text-white'}>Classes</NavLink>
 
-        <NavLink to={'/dashboard'} className={({ isActive }) => isActive ? 'text-red-600' : 'text-primary'}>Dashboard</NavLink>
+        <NavLink to={'/dashboard'} className={({ isActive }) => isActive ? 'py-[2px] px-2 rounded-lg text-white bg-[#9a1111]' : 'text-white'}>Dashboard</NavLink>
         {user && <button onClick={handleLogOut} className="btn btn-primary text-[#000000ad] font-bold md:hidden">Logout</button>}
 
     </>
 
 
     return (
-        <div className="navbar bg-base-100 md:fixed z-30 md:w-[1280px] shadow-xl">
-            <div className="navbar-start">
-                <div className="dropdown z-30">
-                    <label tabIndex={0} className="btn btn-ghost lg:hidden">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
-                    </label>
-                    <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 gap-6 uppercase font-semibold">
+        <>
+            <div className='hidden md:block'>
+                <div className='w-full flex justify-center items-center py-5 flex-col shadow-xl border-b-4 border-[#e01111]'>
+                    <Link to={'/'} className="btn btn-ghost normal-case text-xl flex-col">
+                        <img className='w-[250px]' src={logo} alt="" />
+                    </Link>
+                    <p className='capitalize text-[#3298ba] font-semibold'>A complete sports school</p>
+                </div>
+            </div>
+
+
+
+            <div className="navbar bg-base-100 z-30 shadow-xl md:min-h-0 md:bg-[#e01111] md:px-7 w-full">
+                <div className="navbar-start md:hidden w-[80%] md:w-auto">
+                    <div className="dropdown z-30">
+                        <label tabIndex={0} className="btn btn-ghost md:hidden">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+                        </label>
+                        <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 gap-6 uppercase font-semibold">
+                            {menu}
+                        </ul>
+                    </div>
+                    <Link to={'/'} className="btn btn-ghost normal-case text-xl md:hidden mx-auto">
+                        <img className='w-[150px]' src={logo} alt="" />
+                    </Link>
+                </div>
+                <div className="navbar-center hidden md:flex justify-center items-center">
+                    <ul className="menu menu-horizontal px-1 gap-6 uppercase font-semibold">
                         {menu}
                     </ul>
                 </div>
-                <Link to={'/'} className="btn btn-ghost normal-case text-xl">
-                    <img className='w-[150px]' src={logo} alt="" />
-                </Link>
-            </div>
-            <div className="navbar-center hidden lg:flex">
-                <ul className="menu menu-horizontal px-1 gap-6 uppercase font-semibold">
-                    {menu}
-                </ul>
-            </div>
-            <div className="navbar-end space-x-3">
-                <div className='hidden md:inline-block'>
-                    <label className="swap swap-rotate ">
+                <div className="navbar-end space-x-3 ml-auto w-[20%] md:w-auto">
 
-                        <input type="checkbox"
-                            onChange={handleToggle}
-                            // show toggle image based on localstorage theme
-                            checked={theme === "light" ? false : true}
-                        />
+                    <div className='hidden md:inline-block'>
+                        <label className="swap swap-rotate ">
 
-                        <HiLightBulb className='swap-on fill-current text-4xl text-yellow-400'></HiLightBulb>
+                            <input type="checkbox"
+                                onChange={handleToggle}
+                                // show toggle image based on localstorage theme
+                                checked={theme === "light" ? false : true}
+                            />
 
-                        <FaCloudMoon className='swap-off fill-current text-4xl text-slate-950'></FaCloudMoon>
+                            <IoMdFlashlight className='swap-on fill-current text-4xl text-yellow-400'></IoMdFlashlight>
+
+                            <IoMdMoon className='swap-off fill-current text-4xl text-[#3298ba]'></IoMdMoon>
 
 
-                    </label>
+                        </label>
+                    </div>
+
+                    {!user ? <Link to={'/login'} className="btn btn-sm border-[#1686e8] bg-[#1686e8] text-white">Login</Link> :
+                        <>
+
+                            <div className='w-[60px] h-[60px] rounded-md border-double border-4 overflow-hidden'>
+                                <img referrerPolicy='no-referrer' className='w-[100px]' src={user?.photoURL && user?.photoURL} alt="" />
+                            </div>
+                            <button onClick={handleLogOut} className="btn hidden md:block btn-primary text-[#000000ad] font-bold">Logout</button>
+                        </>
+                    }
+
                 </div>
-                {!user ? <Link to={'/login'} className="btn">Login</Link> :
-                    <>
-
-                        <div className='w-[60px] h-[60px] rounded-md border-double border-4 overflow-hidden'>
-                            <img referrerPolicy='no-referrer' className='w-[100px]' src={user?.photoURL && user?.photoURL} alt="" />
-                        </div>
-                        <button onClick={handleLogOut} className="btn hidden md:block btn-primary text-[#000000ad] font-bold">Logout</button>
-                    </>
-                }
             </div>
-        </div>
+        </>
     );
 };
 

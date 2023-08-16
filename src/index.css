@@ -12,13 +12,13 @@ input.input {
 }
 
 button.summerCampBtn {
-    background-color: #006da4;
+    /* background-color: #006da4; */
     border-left: 4px solid rgb(239, 68, 68);
     font-weight: 800;
     text-transform: uppercase;
     padding: 14px 0;
     color: rgb(239, 68, 68);
-    box-shadow: 5px 5px 6px -2px rgb(0 0 0 / 5%);
+    box-shadow: 11px 11px 16px -2px rgb(23 0 0 / 15%);
 }
 .faqInput{
     outline: none !important;

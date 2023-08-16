@@ -20,7 +20,7 @@ const Slider = () => {
         progressContent.current.textContent = `${Math.ceil(time / 1000)}s`;
     };
     return (
-        <div className='md:pt-[65px]'>
+        <div className='md:pt-[65px'>
             <Swiper
                 spaceBetween={30}
                 centeredSlides={true}
