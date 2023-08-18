@@ -60,7 +60,7 @@ const Navbar = () => {
         <>
             <div className='hidden md:block'>
                 <div className='w-full flex justify-center items-center py-5 flex-col shadow-xl border-b-4 border-[#e01111]'>
-                    <Link to={'/'} className="btn btn-ghost normal-case text-xl flex-col">
+                    <Link to={'/'} className=" normal-case text-xl flex-col">
                         <img className='w-[250px]' src={logo} alt="" />
                     </Link>
                     <p className='capitalize text-[#3298ba] font-semibold'>A complete sports school</p>
