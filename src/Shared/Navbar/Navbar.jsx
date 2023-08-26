@@ -101,7 +101,7 @@ const Navbar = () => {
 
                             <IoMdFlashlight className='swap-on fill-current text-4xl text-yellow-400'></IoMdFlashlight>
 
-                            <IoMdMoon className='swap-off fill-current text-4xl text-black'></IoMdMoon>
+                            <IoMdMoon className='swap-off fill-current text-4xl text-white'></IoMdMoon>
 
 
                         </label>
