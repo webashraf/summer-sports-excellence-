@@ -12,7 +12,7 @@ Website Features:
 
 Used Packages:
 * swiperjs for slider.
-* React-awesome-reveal for scroll animation.
+* React-awesome-reveal for scroll animations.
 * lottie animation for animation cartoon.
 * react stripe-js for payment system.
 * react-icons for icons.
